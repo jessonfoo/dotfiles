@@ -1,0 +1,16 @@
+custom/zsh
+
+vim/backups
+vim/view
+*un~
+vim/.netrwhist
+vim/tmp
+vim/spell
+vim/after/.vimrc.after
+vim/.vundles.local
+vim/.vundles.local.bak
+vim/bundle
+vim/sessions
+.netrwhist
+bin/subl
+tags

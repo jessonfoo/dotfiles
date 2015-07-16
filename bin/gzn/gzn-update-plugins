@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+require File.join(File.dirname(__FILE__), 'default_libs')
+
+GitStyleBinary.command do
+  version "gzn-update-plugins 1.0"
+  short_desc "Update all plugins to latest versions from github"
+
+  run do |command|
+    `cd $HOME/.gzn && rake submodules`
+  end
+
+end
