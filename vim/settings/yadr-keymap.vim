@@ -52,7 +52,7 @@ vmap ,] c[<C-R>"]<ESC>
 
 " ,[ Surround a word with [brackets]
 map ,< i<c-K> 
-vmap ,< c<?php <C-R>" ?><ESC>
+vnoremap <c-p> c<?php <C-R>" ?><ESC>2hi
 
 " ,{ Surround a word with {braces}
 map ,} ysiw}
@@ -61,19 +61,23 @@ vmap ,} c{ <C-R>" }<ESC>
 vmap ,{ c{<C-R>"}<ESC>
 
 map ,a ysiw<a href="">
-vmap ,a c<a href=""> <C-R>" </li><C-r><C-r><ESC>
+vmap <c-a> c<a href=""> <C-R>" </a><C-r><C-r><ESC>
+imap <c-a> <a href=""></a><ESC>bhhi
 
 map ,l ysiw<li>
 vmap ,l c<li <C-R>"</li><ESC>
 map ,s ysiw<span class="">
 vmap ,s c<span class=""> <C-R>" </span><C-r><C-r><ESC>
 
-map ,, ysiw<div class="">
-vmap ,, c<div class=""> <C-R>" </div><C-r><C-r><ESC>
+
+map ð ysiw<div class="">
+vmap  ð <div class=""> <C-R>" </div><C-r><C-r><ESC>
+imap  <c-d> <div class=""></div><ESC>bhhi
 
 map ,` ysiw`
 
 " gary bernhardt's hashrocket
+" imap <c-l> <space>=><space>
 imap <c-l> <space>=><space>
 
 "Go to last edit location with ,.
@@ -89,7 +93,7 @@ nnoremap ,. '.
 imap <C-a> <esc>wa
 
 imap <c-b> <br>
-imap <c-s> <span class=""></span><ESC> F < i
+imap <c-s> <span class=""></span><ESC>bhhi
 " ==== NERD tree
 " Open the project tree and expose current file in the nerdtree with Ctrl-\
 nnoremap <silent> <C-\> :NERDTreeFind<CR>:vertical res 30<CR>
@@ -103,8 +107,8 @@ nmap <silent> ,qo :copen<CR>
 nnoremap <leader>z f>li<cr><esc>f<i<cr><esc>kkl
 nnoremap <c-j> :m .+1<CR>==
 nnoremap <c-k> :m .-2<CR>==
-inoremap <c-j> <Esc>:m .+1<CR>==gi
-inoremap <c-k> <Esc>:m .-2<CR>==gi
+" inoremap <c-j> <Esc>:m .+1<CR>==gi
+" inoremap <c-k> <Esc>:m .-2<CR>==gi
 vnoremap <c-j> :m '>+1<CR>gv=gv
 vnoremap <c-k> :m '<-2<CR>gv=gv
 "Move back and forth through previous and next buffers
@@ -142,7 +146,7 @@ imap <silent> <c-p> <?php ;?><esc>2hi
 
 
 " alt+ j = ˝
-nnoremap <silent> ˝ <?php echo get_site_url();?><Esc>a
+inoremap <silent> <c-j> <?php echo get_site_url();?><Esc>a
 " create <%= foo %> erb tags using Ctrl-j in edit mode
 " imap <silent> <C-J> <?php %><Esc>2hi
 " ============================

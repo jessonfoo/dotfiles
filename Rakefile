@@ -355,12 +355,16 @@ end
 
 def success_msg(action)
   puts ""
-  puts "   _     _           _         "
-  puts "  | |   | |         | |        "
-  puts "  | |___| |_____  __| | ____   "
-  puts "  |_____  (____ |/ _  |/ ___)  "
-  puts "   _____| / ___ ( (_| | |      "
-  puts "  (_______\_____|\____|_|      "
+  puts "   ▄████ ▒███████▒ ███▄    █    "
+  puts "  ██▒ ░░░▒▒ ▒ ▒ ▄▀░ ██ ▀█   █   "
+  puts " ▒██▄░▀██▄░░ ▒ ▄▀▒░ ▓██  ▀█ ██▒ "
+  puts " ░▓▓█  ██▓  ▄▀▒   ░▓██▒  ▐▌██▒  "
+  puts "  ░▒▓███▀▒▒███████▒▒██░   ▓██░  "
+  puts "   ░▒   ▒ ░▒▒ ▓░▒░▒░ ▒░   ▒ ▒   "
+  puts "   ░   ░ ░░▒ ▒ ░ ▒░ ░░   ░ ▒░   "
+  puts "    ░ ░   ░ ░ ░ ░ ░ ░   ░   ░ ░ "
+  puts "     ░   ░ ░             ░      "
+  puts "           ░                    "
   puts ""
   puts "gzn has been #{action}. Please restart your terminal and vim."
 end
