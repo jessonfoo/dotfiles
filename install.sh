@@ -1,3 +1,4 @@
+#encoding: utf-8
 #!/bin/sh
 
 if [ ! -d "$HOME/.gzn" ]; then
