@@ -1,5 +1,3 @@
-#encoding: utf-8
-#!/bin/sh
 
 if [ ! -d "$HOME/.gzn" ]; then
     echo "Installing gzn from jesson's dotfiles"
