@@ -50,7 +50,7 @@ if [ ! -d "$HOME/.gzn" ]; then
 
 
     echo "Installing jesson's dot files to .gzn"
-    git clone --depth=1 https://github.com/jessonfoo/gzn.git "$HOME/.gzn"
+    git clone --depth=1 https://github.com/jessonfoo/dotfiles.git "$HOME/.gzn"
     cd "$HOME/.gzn"
     [ "$1" = "ask" ] && export ASK="true"
     rake install
