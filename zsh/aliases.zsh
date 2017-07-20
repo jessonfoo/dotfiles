@@ -11,7 +11,7 @@ alias isntall='install'
 gzn=$HOME/.gzn
 
 # htop
-alias htop='sudo htop; echo oof123'
+alias htop='sudo htop' 
 
 # Get operating system
 platform='unknown'
@@ -100,8 +100,8 @@ fi
 alias lsg='ll | grep -i '
 
 # Alias Editing
-alias ae='vim $gzn/zsh/aliases.zsh' #alias edit
-alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
+alias ae='vim ~/.gzn/zsh/aliases.zsh' #alias edit
+alias ar='source ~/.gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
 alias vimr="vim --remote"
 alias gvimr="gvim --remote"
 # vim using
