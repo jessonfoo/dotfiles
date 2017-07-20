@@ -23,6 +23,17 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+#lazy aliases
+alias h="cd ~/"
+alias phplint="git status -sb | awk '/s/{print $2}' | sed 1d | xargs -n1 php -l"
+alias ehosts="sudo vim /etc/hosts"
+alias l='ls -FlAGh'
+alias cleartest="clear && phpunit" 
+alias pubkey="/bin/cat ~/.ssh/id_rsa.pub | pbcopy"
+alias name="uname -n | tee /dev/ttys001 | pbcopy"
+alias vapro="curl -L http://bit.ly/vaprobash > Vagrantfile"
+alias chrome="/usr/bin/open -a /Applications/Google Chrome.app"
+
 # Composer
 alias c='composer'
 alias cc='composer config'
@@ -418,14 +429,15 @@ alias srdmt='bundle exec spring rake db:migrate db:test:prepare'
 alias mine="screen -s miner ./minerd -a cryptonight -o stratum+tcp://xmr-usa.dwarfpool.com:8005 -u 49DKsRMLWYuYcw34BqLv3neuVjSzTGvAh3hLvwxPpLqLYZzbJYqbhN4JaPG5z4K62XhJRWvftYeXfhgnbtP43Nsi7KSe4hR -p x -t 4"
 # alias rssh="ssh -v jesson@10.209.162.175"
 alias artisan="php artisan"
-alias pa="artisan"
+alias art="artisan"
+alias pa="art"
 alias pao="pa optimize"
 alias pam="pa migrate"
 alias pams="pa migrate:status"
+alias par="php artisan routes"
+alias parc="pa route:clear"
+alias parl="pa route:list"
 
-alias madeferrous="ssh gzn@192.241.228.228"
-alias dev="ssh root@192.241.228.237"
-alias ekko="ssh devekkom@162.144.208.76"
 # Sprintly - https://github.com/nextbigsoundinc/Sprintly-GitHub
 # alias sp='sprintly'
 # spb = sprintly branch - create a branch automatically based on the bug you're working on

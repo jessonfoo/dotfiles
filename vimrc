@@ -9,7 +9,7 @@ if filereadable(expand("~/.vimrc.before"))
 endif
 " ================ General Config ====================
 
-set guifont=Incosolita-dz/ for/ powerline:h14            " Font family and font size.
+set guifont=Incosolita-dz:h14            " Font family and font size.
 set rnu
 set number                      "Line numbers are good
 set cursorline
