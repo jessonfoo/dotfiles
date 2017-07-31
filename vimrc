@@ -118,6 +118,5 @@ so ~/.gzn/vim/settings.vim
 nmap <c-a> :CtrlP<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <Space> @q
-imap <C-Return> <CR><CR><C-o>k<Tab>
-color monokai
+imap <C-Return> <CR><CR><C-o>k 0
 color molokai

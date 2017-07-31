@@ -21,7 +21,7 @@ task :install => [:submodule_init, :submodules] do
   file_operation(Dir.glob('tmux/*')) if want_to_install?('tmux config')
   file_operation(Dir.glob('vimify/*')) if want_to_install?('vimification of command line tools')
   if want_to_install?('vim configuration (highly recommended)')
-    file_operation(Dir.glob('{vim,vimrc}'))
+    file_operation(Dir.glob('{vim,vimrc,gvimrc}'))
     Rake::Task["install_vundle"].execute
   end
 

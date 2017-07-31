@@ -33,6 +33,8 @@ alias pubkey="/bin/cat ~/.ssh/id_rsa.pub | pbcopy"
 alias name="uname -n | tee /dev/ttys001 | pbcopy"
 alias vapro="curl -L http://bit.ly/vaprobash > Vagrantfile"
 alias chrome="/usr/bin/open -a /Applications/Google Chrome.app"
+alias lctl="launchctl"
+alias catnew="sudo cat $@\"$(ls $@ -rt | tail -n1)\" | less"
 
 # Composer
 alias c='composer'
@@ -303,7 +305,7 @@ alias k9='sudo kill -9'
 alias ka15='killall -15'
 alias k='kill -15'
 function killallby(){
-kill -9 `lsof -t -u $@`
+  kill -9 `lsof -t -u $@`
 }
 
 # Gem install
@@ -443,12 +445,11 @@ alias parl="pa route:list"
 # spb = sprintly branch - create a branch automatically based on the bug you're working on
 alias spb="git checkout -b \`sp | tail -2 | ag '#' | sed 's/^ //' | sed 's/[^A-Za-z0-9 ]//g' | sed 's/ /-/g' | cut -d"-" -f1,2,3,4,5\`"
 alias pau="pa up"
-alias pas="sudo php artisan serve --port=80"
 alias prp="prompt -l;prompt -p"
 
-  # FASDF SHITTT ROCKs
-  alias c='fasd_cd -d'
-  alias v='f -ue gvim'
+# FASDF SHITTT ROCKs
+alias c='fasd_cd -d'
+alias v='f -ue gvim'
 
 ff(){
   files=`find . -name $1`
@@ -464,29 +465,35 @@ ff(){
     return 1
   fi
 }
-  fm(){
-    if command -v ag >/dev/null 2>&1
-    then # use silver-searcher if available
-      matches=`ag --color $1`
-    elif command -v ack >/dev/null 2>&1
-    then # else, use ack if available
-      matches=`ack $1`
-    else # otherwise, just use ag
-      matches=`ag -r '$1' *`
+fm(){
+  if command -v ag >/dev/null 2>&1
+  then # use silver-searcher if available
+    matches=`ag --color $1`
+  elif command -v ack >/dev/null 2>&1
+  then # else, use ack if available
+    matches=`ack $1`
+  else # otherwise, just use ag
+    matches=`ag -r '$1' *`
+  fi
+  matchcount=`echo $matches | sed '/^\s*$/d' | wc -l`
+  if [ $matchcount -gt 0 ]; then
+    echo "File '$1' appears to be in use."
+    if $useverbose ; then
+      echo $matches
     fi
-    matchcount=`echo $matches | sed '/^\s*$/d' | wc -l`
-    if [ $matchcount -gt 0 ]; then
-      echo "File '$1' appears to be in use."
-      if $useverbose ; then
-        echo $matches
-      fi
-      return 1
-    fi
-  }
-  function vtar(){tar tvf $@.tar}
-  function tar(){tar cvf $@ tar $@}
-  function untar(){ tar xvf $@ }
-  # function gkill(){sudo kill $(psg "$@" | awk '{print $2}')}
-  # function v(){f -e vim "$@"}
-# jag () { find . -name .repo -prune -o -name .git -prune -o -name out -prune -o -type f -name "*\.java" -print0 | xargs -0 ag --color -n "$@" }
+    return 1
+  fi
+}
+vtar(){tar tvf $@.tar}
+tar(){tar cvf $@ tar $@}
+untar(){ tar xvf $@ }
 
+alias pas="sudo php artisan serve --port=80"
+# function gkill(){sudo kill $(psg "$@" | awk '{print $2}')}
+# function v(){f -e vim "$@"}
+jag () { 
+  files= `find . -name .repo -prune -o -name .git -prune -o -name out -prune -o -type f -name "java" -print0`
+  $(files) | xargs -0 ag --color -n "$@" 
+}
+
+alias lbssh="ssh rankerdev@172.24.32.12"
