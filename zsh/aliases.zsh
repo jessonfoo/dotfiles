@@ -34,7 +34,9 @@ alias name="uname -n | tee /dev/ttys001 | pbcopy"
 alias vapro="curl -L http://bit.ly/vaprobash > Vagrantfile"
 alias chrome="/usr/bin/open -a /Applications/Google Chrome.app"
 alias lctl="launchctl"
+alias lctlr="launchctl remove"
 alias catnew="sudo cat $@\"$(ls $@ -rt | tail -n1)\" | less"
+alias paR="pa cache:clear && pa clear-compiled && pa route:clear && pa optimize"
 
 # Composer
 alias c='composer'
