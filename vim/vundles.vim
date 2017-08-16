@@ -12,8 +12,7 @@ filetype off
 
 set rtp+=~/.vim/bundle/vundle/
 set rtp+=~/.vim/vundles/ "Submodules
-call vundlerc()
-
+call vundle#begin()
 " let Vundle manage Vundle (required)
 Bundle "gmarik/vundle"
 
