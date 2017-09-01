@@ -4,8 +4,8 @@ set nocompatible
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
+if filereadable(expand("~/.gvimrc.before"))
+  source ~/.gvimrc.before
 endif
 
 " ================ General Config ====================
@@ -114,7 +114,8 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 " ================ Custom Settings ========================
-so ~/..gzn/vim/settings.vim
+"
+so ~/.gzn/vim/settings.vim
 let g:molokai_original=1
 let g:rehash256=1
 color molokai
