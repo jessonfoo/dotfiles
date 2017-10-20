@@ -1,8 +1,9 @@
 # Aliases in this file are bash and zsh compatible
 
 #custom  aliases
-
+alias b="cd -"
 alias games='/usr/share/emacs/22.1/lisp/play'
+
 
 # fucking common typos lol
 alias isntall='install'
@@ -148,21 +149,23 @@ alias gip='gzn init-plugins'
 
 alias dbconnect='mysql contentfactory -uapp_db -h127.0.0.1 --password=ranker_rules -A'
 # PS
-alias psa="ps aux"
-alias psf="ps aux | ack"
-alias psm="ps aux | ack mysql"
-alias psr='ps aux | grep -i ruby'
+alias psa="ps -aux"
+alias psf="psa | ack"
+alias psm="psa | ack mysql"
+alias psg="psa | grep -i"
 alias vup="vagrant up"
 alias awsv="ssh ubuntu@ec2-34-211-5-190.us-west-2.compute.amazonaws.com -v -i ~/.ssh/urbit.pem"
 
-alias aws="ssh ubuntu@ec2-34-211-5-190.us-west-2.compute.amazonaws.com -i ~/.ssh/urbit.pem"
 
+alias urbit="ssh -v ubuntu@ec2-34-211-5-190.us-west-2.compute.amazonaws.com -i ~/.ssh/urbit.pem"
+alias aws="ssh -v ubuntu@ec2-52-43-25-203.us-west-2.compute.amazonaws.com -i ~/.ssh/aws.pem"
 function jkill(){
   echo "searching for process $@";
   ps aux | grep -i $@ | awk '{print $2}' | xargs sudo kill -9;
   echo "attempted to kill process";
   ps aux | grep -i $@;
 }
+
 # function gkill(){sudo kill -9 | $(psg "$@" | awk '{print $2}')}
 function hero(){ga && gcm "$@" && gphm}
 # Zippin
@@ -470,7 +473,7 @@ ff(){
 fm(){
   if command -v ag >/dev/null 2>&1
   then # use silver-searcher if available
-    matches=`ag --color $1`
+    matches=`ag $1`
   elif command -v ack >/dev/null 2>&1
   then # else, use ack if available
     matches=`ack $1`
@@ -498,4 +501,3 @@ jag () {
   $(files) | xargs -0 ag --color -n "$@" 
 }
 
-alias lbssh="ssh rankerdev@172.24.32.12"
