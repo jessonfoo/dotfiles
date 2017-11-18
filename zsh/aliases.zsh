@@ -43,6 +43,7 @@ alias fuckitall='sudo killall -u Jesson -m .'
 # alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
 alias ossh="ssh root@192.241.203.47 -o=stricthostkeychecking=no"
 alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
+alias oo="open . "
 alias gssh="ssh root@104.236.169.67 -o=stricthostkeychecking=no"
 alias singleappmodeon="defaults write com.apple.dock single-app -bool TRUE; killall Dock"
 alias singleappmodeoff="defaults write com.apple.dock single-app -bool FALSE; killall Dock"
