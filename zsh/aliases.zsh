@@ -261,3 +261,4 @@ alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
 
 alias hdu="diskutil"
+alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'

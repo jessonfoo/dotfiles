@@ -1,3 +1,16 @@
 $pp = new TransactionAssignmentController();
 $pp = new \App\Http\Controllers\TransactionAssignmentController();
 dd($pp)
+EditorNote::find(8768);
+use app/EditorNote.php
+use app/EditorNote.php;
+use \app\EditorNote.php;
+use app
+use EditorNote
+EditorNote::find(8768);
+use app\EditorNote;
+EditorNote::find(8768);
+EditorNote
+app\EditorNote::find(1)
+app\EditorNote::first()
+app\EditorNote::first();
