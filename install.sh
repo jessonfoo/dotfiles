@@ -1,17 +1,26 @@
 #!/bin/sh
 
+local -n deps=( git ruby rake ) ;
+
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
+    pkgctl='brew'
     if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
-        #      hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo apt-get update; sudo apt-get install linuxbrew-wrapper;}
-        hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with apt-get \n \n ";
-        sudo apt-get install git; }
-        hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with apt-get \n \n";
-        sudo apt-get install ruby; }
-        hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install rake\n \n";
-        gem install rake; }
+        if [ -n "$(command -v yum)" ]; then
+            pkgctl='yum'
+        fi
+        if [ -n "$(command -v apt-get)" ]; then
+            pkgctl='apt-get'
+        fi
+
+        $pkgctl update -y;
+
+        hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with $pkgctl \n \n "; sudo $pkgctl install git; }
+        hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with $pkgctl \n \n"; sudo $pkgctl install ruby; }
+        hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install rake\n \n"; gem install rake; }
+
     elif [[ $unamestr == 'Darwin' ]]; then
       platform='darwin'
         # check if homebrew is installed
