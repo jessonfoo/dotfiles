@@ -1,8 +1,14 @@
 #!/bin/sh
+<<<<<<< HEAD
+=======
+
+local -n deps=( git ruby rake ) ;
+>>>>>>> 05df8a22bbfcccb772f691fdcadfdf06d5174e03
 
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
+<<<<<<< HEAD
     if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
       hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo apt-get update; sudo apt-get install linuxbrew-wrapper;}
@@ -12,6 +18,58 @@ if [ ! -d "$HOME/.gzn" ]; then
       platform='darwin'
       hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with brew \n \n "; brew install git;}
       hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install brew \n \n"; brew install rake;}
+=======
+    pkgctl='brew'
+    if [[ $unamestr == 'Linux' ]]; then
+      platform='linux'
+        if [ -n "$(command -v yum)" ]; then
+            pkgctl='yum'
+        fi
+        if [ -n "$(command -v apt-get)" ]; then
+            pkgctl='apt-get'
+        fi
+
+        $pkgctl update -y;
+
+        hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with $pkgctl \n \n "; sudo $pkgctl install git; }
+        hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with $pkgctl \n \n"; sudo $pkgctl install ruby; }
+        hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install rake\n \n"; gem install rake; }
+
+    elif [[ $unamestr == 'Darwin' ]]; then
+      platform='darwin'
+        # check if homebrew is installed
+        which -s brew
+        if [[ $? != 0 ]]; then
+            # Install Homebrew from source https://brew.sh/
+            /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        else
+            brew update
+        fi
+
+        which -s git
+        if [[ $? != 0 ]]; then
+            brew install git
+        else
+            brew update
+        fi
+
+        which -s ruby
+        if [[ $? != 0 ]]; then
+
+            printf >&2 "installing ruby";
+            brew install ruby;
+            printf >&2 "installing rake";
+            gem install rake;
+        else
+            which -s rake;
+            if [[ $? != 0 ]]; then
+                gem install ruby;
+            else
+                printf >&2 "all good";
+            fi
+        fi
+
+>>>>>>> 05df8a22bbfcccb772f691fdcadfdf06d5174e03
     fi
 
 

@@ -43,6 +43,7 @@ alias fuckitall='sudo killall -u Jesson -m .'
 # alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
 alias ossh="ssh root@192.241.203.47 -o=stricthostkeychecking=no"
 alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
+alias oo="open . "
 alias gssh="ssh root@104.236.169.67 -o=stricthostkeychecking=no"
 alias singleappmodeon="defaults write com.apple.dock single-app -bool TRUE; killall Dock"
 alias singleappmodeoff="defaults write com.apple.dock single-app -bool FALSE; killall Dock"
@@ -108,12 +109,11 @@ alias gvimr="gvim --remote"
 # mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
 if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="vim -v"
-  alias mvim="mvim -v"
-  alias vi="mvim -v"
+  alias vim="vim"
+  alias mvim="mvim"
+  alias vi="mvim"
 fi
 
-alias vim='mvim -v'
 
 # mimic vim functions
 alias :q='exit'
@@ -253,8 +253,12 @@ alias dbmd='spring rake db:migrate:down'
 alias dbmu='spring rake db:migrate:up'
 
 # Homebrew
-alias brewu='brew update && brew upgrade && brew cleanup && brew prune && brew doctor'
+alias br='brew'
+alias brewu='brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor'
 alias bri="brew install"
-alias bru="brew update"
+alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
+
+alias hdu="diskutil"
+alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'

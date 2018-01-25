@@ -1,14 +1,12 @@
-" Vim color file
-" Converted from Textmate theme Monokai Soda using Coloration v0.3.3 (http://github.com/sickill/coloration)
 
-set background=dark
+set background=light
 highlight clear
 
 if exists("syntax_on")
   syntax reset
 endif
 
-let g:colors_name = "Monokai Soda"
+let g:colors_name = "molokai"
 
 hi Cursor ctermfg=235 ctermbg=231 cterm=NONE guifg=#222222 guibg=#f8f8f0 gui=NONE
 hi Visual ctermfg=NONE ctermbg=238 cterm=NONE guifg=NONE guibg=#444444 gui=NONE
