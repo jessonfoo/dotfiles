@@ -1,6 +1,5 @@
 #!/bin/sh
 
-local -n deps=( git ruby rake ) ;
 
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
