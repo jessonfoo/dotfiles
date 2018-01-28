@@ -259,5 +259,6 @@ alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
 
+alias sudoself="sudo su $USER"
 alias hdu="diskutil"
  alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
