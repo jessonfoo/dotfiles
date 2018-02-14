@@ -22,6 +22,9 @@ elif [[ $unamestr == 'Darwin' ]]; then
   platform='darwin'
 fi
 
+
+
+alias sudoMe="sudo su $USER"
 # backup shortcuts using mackup [pip install mackup]
 alias mbackup="mackup backup"
 

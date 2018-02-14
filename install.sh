@@ -1,6 +1,5 @@
 #!/bin/sh
 
-
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
