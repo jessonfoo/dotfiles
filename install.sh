@@ -1,24 +1,8 @@
 #!/bin/sh
-<<<<<<< HEAD
-=======
-
-local -n deps=( git ruby rake ) ;
->>>>>>> 05df8a22bbfcccb772f691fdcadfdf06d5174e03
 
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
-<<<<<<< HEAD
-    if [[ $unamestr == 'Linux' ]]; then
-      platform='linux'
-      hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo apt-get update; sudo apt-get install linuxbrew-wrapper;}
-      hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with brew \n \n "; brew install git;}
-      hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install brew \n \n"; brew install rake;}
-    elif [[ $unamestr == 'Darwin' ]]; then
-      platform='darwin'
-      hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with brew \n \n "; brew install git;}
-      hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install brew \n \n"; brew install rake;}
-=======
     pkgctl='brew'
     if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
@@ -38,9 +22,10 @@ if [ ! -d "$HOME/.gzn" ]; then
     elif [[ $unamestr == 'Darwin' ]]; then
       platform='darwin'
         # check if homebrew is installed
+        curl -sSL https://get.rvm.io | bash -s stable --with-default-gems="rails rake irb pry";
         which -s brew
         if [[ $? != 0 ]]; then
-            # Install Homebrew from source https://brew.sh/
+            # Install Homebrew from source https://brew.shk/
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         else
             brew update
@@ -69,7 +54,6 @@ if [ ! -d "$HOME/.gzn" ]; then
             fi
         fi
 
->>>>>>> 05df8a22bbfcccb772f691fdcadfdf06d5174e03
     fi
 
 

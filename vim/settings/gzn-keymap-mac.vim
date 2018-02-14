@@ -74,3 +74,4 @@ vmap <D-A> :Tabularize /
 
 " Source current file Cmd-% (good for vim development)
 map <D-%> :so %<CR>
+

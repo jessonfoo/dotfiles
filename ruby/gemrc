@@ -1,8 +1,10 @@
 ---
 :update_sources: true
 :sources:
-- http://rubygems.org
-:benchmark: false
+    - http://rubygems.org
+    - http://artifactory.corporate.com/artifactory/api/gems/ruby-gems
+:benchmark: true
 :backtrace: false
 :verbose: true
 gem: --no-document
+install: --no-rdoc --no-ri
