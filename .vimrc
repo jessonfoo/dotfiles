@@ -20,7 +20,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
-set mouse=a
+
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -116,6 +116,7 @@ set smartcase       " ...unless we type a capital
 map <c-n> :NERDTreeToggle<CR>
 " ================ Custom Settings ========================
 so ~/.gzn/vim/settings.vim
+so ~/.gzn/vim/.vimrc
 nmap <c-a> :CtrlP<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <Space> @q

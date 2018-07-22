@@ -2,7 +2,37 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< Updated upstream
+      <module fileurl="file://$PROJECT_DIR$/.idea/.gzn.iml" filepath="$PROJECT_DIR$/.idea/.gzn.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/.yadr.iml" filepath="$PROJECT_DIR$/.idea/.yadr.iml" />
+>>>>>>> Stashed changes
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/investigate.vim.iml" filepath="$PROJECT_DIR$/.idea/modules/investigate.vim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/investigate.vim1.iml" filepath="$PROJECT_DIR$/.idea/modules/investigate.vim1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/node.iml" filepath="$PROJECT_DIR$/.idea/modules/node.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/node1.iml" filepath="$PROJECT_DIR$/.idea/modules/node1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/splitjoin.vim.iml" filepath="$PROJECT_DIR$/.idea/modules/splitjoin.vim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/splitjoin.vim1.iml" filepath="$PROJECT_DIR$/.idea/modules/splitjoin.vim1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-easymotion.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-easymotion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-easymotion1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-easymotion1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-multiple-cursors.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-multiple-cursors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-multiple-cursors1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-multiple-cursors1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-node.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-node.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-node1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-node1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-polyglot.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-polyglot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-polyglot1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-polyglot1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-entire.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-entire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-entire1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-entire1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-function.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-function.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-function1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-function1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-user.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-user.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-user1.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-user1.iml" />
     </modules>
   </component>
 </project>

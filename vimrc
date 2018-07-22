@@ -7,24 +7,7 @@ set nocompatible
 if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
-" ================ General Config ====================
 
-set guifont=Incosolita-dz\ for\ powerline:h14            " Font family and font size.
-set rnu
-set number                      "Line numbers are good
-set cursorline
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
 
 "turn on syntax highlighting
 syntax on
@@ -33,7 +16,6 @@ syntax on
 " That means all \x commands turn into ,x
 " The mapleader has to be set before vundle starts loading all 
 " the plugins.
-" let mapleader=","
 let mapleader=","
 
 " =============== Vundle Initialization ===============
@@ -52,14 +34,22 @@ set nowb
 " ================ Persistent Undo ==================
 " Keep undo history across sessions, by storing in file.
 " Only works all the time.
-if has('persistent_undo')
+if has('persistent_undo') && !isdirectory(expand('~').'/.vim/backups')
   silent !mkdir ~/.vim/backups > /dev/null 2>&1
   set undodir=~/.vim/backups
   set undofile
 endif
 
+" ================ load function ============================
+
+if filereadable(expand("~/.vim/functions.vim"))
+  source ~/.vim/functions.vim
+endif
+
+
+
 " ================ Indentation ======================
- 
+
 set autoindent
 set smartindent
 set smarttab
@@ -68,12 +58,16 @@ set softtabstop=2
 set tabstop=2
 set expandtab
 
+" Auto indent pasted text
+nnoremap p p=`]<C-o>
+nnoremap P P=`]<C-o>
+
 filetype plugin on
 filetype indent on
 
 " Display tabs and trailing spaces visually
 set list listchars=tab:\ \ ,trail:·
-
+set rnu
 set nowrap       "Don't wrap lines
 set linebreak    "Wrap lines at convenient points
 
@@ -112,11 +106,17 @@ set hlsearch        " Highlight searches by default
 set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
-map <c-n> :NERDTreeToggle<CR>
 " ================ Custom Settings ========================
 so ~/.gzn/vim/settings.vim
-nmap <c-a> :CtrlP<CR>
+let g:molokai_original=1
+let g:rehash256=1
+nnoremap <silent> <A-l> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-n> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
+nnoremap <c-a> :CtrlP<CR>
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 nnoremap <Space> @q
-imap <C-Return> <CR><CR><C-o>k<Tab>
-color molokai
+color base16-monokai
+colorscheme molokai
+noremap Q :qa!<CR>x
+execute pathogen#infect()
+call pathogen#helptags()

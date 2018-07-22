@@ -8,8 +8,6 @@ if filereadable(expand("~/.vimrc.before"))
   source ~/.vimrc.before
 endif
 
-" ================ General Config ====================
-
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set history=1000                "Store lots of :cmdline history
@@ -114,7 +112,5 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 " ================ Custom Settings ========================
-so ~/..gzn/vim/settings.vim
-let g:molokai_original=1
-let g:rehash256=1
-color molokai
+so ~/.gzn/vim/settings.vim
+color monokai

@@ -2,6 +2,7 @@
 
 #custom  aliases
 
+alias ali="alias"
 alias games='/usr/share/emacs/22.1/lisp/play'
 
 # fucking common typos lol
@@ -58,6 +59,15 @@ alias st100="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/te
 alias st1000="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test1000.zip"
 alias _m="man"
 
+#php artisan
+alias composer="php /bin/composer"
+alias artisan="php artisan"
+alias pa="artisan"
+alias pas="php artisan serve"
+alias pao="php artisan optimize"
+
+
+
 #Tmux
 alias tm='tmux'
 alias tlk="tmux list-keys"
@@ -73,12 +83,13 @@ alias tcs="tmux choose-session"
 alias trs="tmux rename-session -t"
 alias trw="tmux rename-window -t"
 # gzn suppore
-alias yav='gzn vim-add-plugin'
-alias ydv='gzn vim-delete-plugin'
-alias ylv='gzn vim-list-plugin'
-alias yup='gzn update-plugins'
-alias yip='gzn init-plugins'
+alias vap='gzn vim-add-plugin'
+alias vdp='gzn vim-delete-plugin'
+alias vlp='gzn vim-list-plugin'
+alias vup='gzn update-plugins'
+alias vinit='gzn init-plugins'
 
+alias dsshc="ssh root@206.189.66.164"
 # PS
 alias psa="ps aux"
 alias psg="ps aux | grep -i "
@@ -256,13 +267,30 @@ alias dbmr='spring rake db:migrate:redo'
 alias dbmd='spring rake db:migrate:down'
 alias dbmu='spring rake db:migrate:up'
 
+alias sgc="gcloud"
+alias gloud="gcloud"
+
+#lazy
+alias t="type"
+
 # Homebrew
+
 alias br='brew'
-alias brewu='brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor'
-alias bri="brew install"
-alias bru="brew upgrade"
-alias brd="brew doctor"
-alias brci='brew cask install --appdir="/Applications"'
+alias brup='brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor'
+alias bru='brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor'
+alias bi="brew install"
+alias bfi="brew info"
+alias bu="brew upgrade"
+alias bs="brew search"
+alias bcfi="brew cask info"
+alias brci="brew cask install"
+alias bd="brew doctor"
+alias bci='brew cask install --appdir="/Applications"'
+alias h="cd ~"
 
 alias hdu="diskutil"
 alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+
+alias iftop="sudo iftop"
+alias bri="brew install"
+alias python="python2.7"

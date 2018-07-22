@@ -22,6 +22,14 @@ function fn() { ls **/*$1* }
 # (f)ind by (n)ame
 # usage: fn foo 
 # to find all files containing 'foo' in the name
+_comp_sudo_alias() { from="$2"; COMPREPLY=()
+  if [[ $COMP_CWORD == 1 ]]; then
+    COMPREPLY=( "$( alias -p | grep "^ *alias $from=" | sed -r "s/^ *alias [^=]+='(.*)'$/\1/" )" )
+    return 0
+  fi
+  return 1
+}
+
 
 # Functions
 #
@@ -36,11 +44,3 @@ sudo() {
         command sudo "$@"
     fi 
 }
-_comp_sudo_alias() { from="$2"; COMPREPLY=()
-  if [[ $COMP_CWORD == 1 ]]; then
-    COMPREPLY=( "$( alias -p | grep "^ *alias $from=" | sed -r "s/^ *alias [^=]+='(.*)'$/\1/" )" )
-    return 0
-  fi
-  return 1
-}
-

@@ -9,7 +9,8 @@ AwesomePrint.defaults = {
     :date       => :greenish,
     :falseclass => :red,
     :fixnum     => :blue,
-    :float      => :blue,
+    :float      => :blue,*.swp
+                         .VimballRecord
     :hash       => :pale,
     :keyword    => :cyan,
     :method     => :purpleish,
