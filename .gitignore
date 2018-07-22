@@ -16,7 +16,6 @@ vim/sessions
 .netrwhist
 bin/subl
 tags
-.idea
 .env
 vim/backups/*
 powerline/segments/np_mpd
