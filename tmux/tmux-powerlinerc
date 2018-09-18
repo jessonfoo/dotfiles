@@ -53,7 +53,7 @@
 
 # hostname.sh {
 	# Use short or long format for the hostname. Can be {"short, long"}.
-	export TMUX_POWERLINE_SEG_HOSTNAME_FORMAT="short"
+	export TMUX_POWERLINE_SEG_HOSTNAME_FORMAT="long"
 # }
 
 # macos_notification_count.sh {
@@ -63,7 +63,7 @@
 	# The first column contains the app ids
 	# "5" is the app id of Messages.app
 	# Only "banner" notifications are supported (see settings in the notification center)
-	export TMUX_POWERLINE_SEG_MACOS_NOTIFICATION_COUNT_APPIDS=("45")
+	export TMUX_POWERLINE_SEG_MACOS_NOTIFICATION_COUNT_APPIDS="45"
 	# Notification symbol
 	export TMUX_POWERLINE_SEG_MACOS_NOTIFICATION_COUNT_CHAR="💬"
 # }

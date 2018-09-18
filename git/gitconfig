@@ -112,7 +112,7 @@
 [core]
   autocrlf = false
   editor = vim
-  excludesfile = ~/.gzn/git/gitignore
+	excludesfile = /Users/jesson/.gzn/git/gitignore
 [advice]
   statusHints = false
 [diff]

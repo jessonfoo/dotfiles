@@ -38,6 +38,7 @@ alias lcunin='lunchy uninstall'
 alias lcshow='lunchy show'
 alias lce='lunchy edit'
 alias mkd="mkdir"
+alias actm="glances"
 
 # kill all applications by user
 alias fuckitall='sudo killall -u Jesson -m .'
@@ -264,5 +265,9 @@ alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
 
+
+function kkill() { 
+  exec print "$(ps ax | grep $1| head -2 | awk '{print $1}')"
+}
 alias hdu="diskutil"
 alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
