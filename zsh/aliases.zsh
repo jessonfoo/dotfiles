@@ -1,5 +1,7 @@
 # Aliases in this file are bash and zsh compatible
 
+NVM_DIR="$HOME/.nvm"
+  . "/usr/local/opt/nvm/nvm.sh"
 #custom  aliases
 
 alias games='/usr/share/emacs/22.1/lisp/play'
@@ -52,6 +54,13 @@ alias scrollmodeoff="defaults write com.apple.dock scroll-to-open -bool FALSE; k
 alias st10="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias st100="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip"
 alias st1000="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test1000.zip"
+
+
+#react-native
+
+alias rn="react-native"
+alias rni="react-native init"
+alias rnri="rn run-ios"
 
 #Tmux
 alias tm='tmux'
