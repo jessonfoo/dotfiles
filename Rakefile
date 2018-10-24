@@ -45,6 +45,8 @@ end
 task :update do
   Rake::Task["vundle_migration"].execute if needs_migration_to_vundle?
   Rake::Task["install"].execute
+  #TODO: for now, we do the same as install. But it would be nice
+  #not to clobber zsh files
 end
 
 task :submodule_init do
@@ -89,7 +91,6 @@ task :vundle_migration do
 end
 
 desc "Runs Vundle installer in a clean vim environment"
-
 task :install_vundle do
   puts "======================================================"
   puts "Installing and updating vundles."
@@ -289,7 +290,6 @@ def install_prezto
 end
 
 def want_to_install? (section)
-
   if ENV["ASK"]=="true"
     puts "Would you like to install configuration files for: #{section}? [y]es, [n]o"
     STDIN.gets.chomp == 'y'
@@ -354,8 +354,7 @@ def apply_theme_to_iterm_profile_idx(index, color_scheme_path)
 end
 
 def success_msg(action)
-  puts "Would you like to install configuration files for: #{section}? [y]es, [n]o"
-  user
-  STDIN.gets.chomp == 'y'
+  puts ""
+  puts ""
   puts "gzn has been #{action}. Please restart your terminal and vim."
 end

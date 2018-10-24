@@ -30,7 +30,7 @@ nnoremap <A-]> f]ci]
 
 " ==== NERD tree
 " Alt-Shift-N for nerd tree
-nmap <c-e> :NERDTreeToggle<CR>
+nmap <A-N> :NERDTreeToggle<CR>
 
 " move up/down quickly by using Alt-j, Alt-k
 " which will move us around by functions
@@ -73,4 +73,3 @@ vmap <A-A> :Tabularize /
 
 " Source current file Alt-% (good for vim development)
 map <A-%> :so %<CR>
-

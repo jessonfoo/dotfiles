@@ -12,7 +12,6 @@ gzn=$HOME/.gzn
 
 # htop
 alias htop='sudo htop; echo oof123'
-alias reloadHostsFiles='sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder'
 
 # Get operating system
 platform='unknown'
@@ -37,7 +36,6 @@ alias lcin='lunchy install'
 alias lcunin='lunchy uninstall'
 alias lcshow='lunchy show'
 alias lce='lunchy edit'
-alias mkd="mkdir"
 
 # kill all applications by user
 alias fuckitall='sudo killall -u Jesson -m .'
@@ -45,18 +43,15 @@ alias fuckitall='sudo killall -u Jesson -m .'
 # alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
 alias ossh="ssh root@192.241.203.47 -o=stricthostkeychecking=no"
 alias jssh="ssh root@104.131.154.83 -o=stricthostkeychecking=no"
-alias oo="open . "
 alias gssh="ssh root@104.236.169.67 -o=stricthostkeychecking=no"
 alias singleappmodeon="defaults write com.apple.dock single-app -bool TRUE; killall Dock"
 alias singleappmodeoff="defaults write com.apple.dock single-app -bool FALSE; killall Dock"
 alias scrollmodeon="defaults write com.apple.dock scroll-to-open -bool TRUE; killall Dock"
 alias scrollmodeoff="defaults write com.apple.dock scroll-to-open -bool FALSE; killall Dock"
-alias a2c="aria2c"
 # run wget to download to /dev/null  (device file that discards data written but reports write success) 100mb dowload
 alias st10="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 alias st100="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test100.zip"
 alias st1000="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test1000.zip"
-alias _m="man"
 
 #Tmux
 alias tm='tmux'
@@ -264,5 +259,6 @@ alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
 
+alias sudoself="sudo su $USER"
 alias hdu="diskutil"
-alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+ alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'

@@ -12,8 +12,5 @@ vim/.vundles.local.bak
 vim/bundle
 vim/sessions
 .netrwhist
-bin/gzn/prezto
 bin/subl
 tags
-.idea
-.env
