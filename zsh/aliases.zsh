@@ -261,4 +261,10 @@ alias brci='brew cask install --appdir="/Applications"'
 
 alias sudoself="sudo su $USER"
 alias hdu="diskutil"
- alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+
+
+alias rn="react-native"
+alias rni="rn init"
+alias nig="npm install -g"
+alias lsis="lsof -i :8081"
