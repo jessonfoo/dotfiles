@@ -105,10 +105,10 @@ alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias relo
 alias vimr="vim --remote"
 alias gvimr="gvim --remote"
 # vim using
-# mvim --version > /dev/null 2>&1
+mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
 if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="vim"
+  alias vim="vim --clean -V"
   alias mvim="mvim"
   alias vi="mvim"
 fi
@@ -121,8 +121,8 @@ alias :q='exit'
 alias ve='vim ~/.vimrc'
 
 # zsh profile editing
-alias ze='vim ~/.zshrc'
-alias zr='source ~/.zshrc && echo "zshrc reloaded!"'
+        alias ze='vim ~/.zshrc'
+  alias zr='source ~/.zshrc && echo "zshrc reloaded!"'
 
 # Git Aliases
 alias gc="git clone "
@@ -258,13 +258,22 @@ alias bri="brew install"
 alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
+alias rnnitp="./node_modules/react-native/scripts/ios-install-third-party.sh"
+alias rncglog="cd node_modules/react-native/third-party/glog-*; ../../scripts/ios-configure-glog.sh; cd-"
 
+
+
+#superUser
 alias sudoself="sudo su $USER"
 alias hdu="diskutil"
-alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
-
-
 alias rn="react-native"
 alias rni="rn init"
+alias rnri="rn run-ios"
 alias nig="npm install -g"
 alias lsis="lsof -i :8081"
+alias minexmr='sudo /Users/jessonfoo/Extracted/minergate-cli/minergate-cli -user jessonfoo@gmail.com -xmr'
+alias oo="open ."
+alias npmisd="npm install --save-dev"
+
+alias schown="sudo chown"
+alias schmod="sudo chmod"
