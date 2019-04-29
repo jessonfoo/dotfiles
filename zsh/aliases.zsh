@@ -9,7 +9,7 @@ alias isntall='install'
 
 # Don't change. The following determines where gzn is installed.
 if [ ! -d "$HOME/.gzn" ]; then
-	gzn=$HOME/.gzn
+  gzn=$HOME/.gzn
 fi
 
 
@@ -30,16 +30,16 @@ fi
 alias mbackup="mackup backup"
 
 # Lunchy commands [ for launchctl control]
-alias lc='lunchy'
-alias lcls='lunchy ls'
-alias lcs='lunchy stop'
-alias lcstart='lunchy start -w'
-alias lcr='lunchy restart'
-alias lcst='lunchy status'
-alias lcin='lunchy install'
-alias lcunin='lunchy uninstall'
-alias lcshow='lunchy show'
-alias lce='lunchy edit'
+  alias lc='lunchy'
+  alias lcls='lunchy ls'
+  alias lcs='lunchy stop'
+  alias lcstart='lunchy start -w'
+  alias lcr='lunchy restart'
+  alias lcst='lunchy status'
+  alias lcin='lunchy install'
+  alias lcunin='lunchy uninstall'
+  alias lcshow='lunchy show'
+  alias lce='lunchy edit'
 
 # kill all applications by user
 alias fuckitall='sudo killall -u Jesson -m .'
@@ -125,8 +125,8 @@ alias :q='exit'
 alias ve='vim ~/.vimrc'
 
 # zsh profile editing
-        alias ze='vim ~/.zshrc'
-  alias zr='source ~/.zshrc && echo "zshrc reloaded!"'
+alias ze='vim ~/.zshrc'
+alias zr='source ~/.zshrc && echo "zshrc reloaded!"'
 
 # Git Aliases
 alias gc="git clone "
