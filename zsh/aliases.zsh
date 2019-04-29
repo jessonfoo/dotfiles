@@ -8,7 +8,11 @@ alias games='/usr/share/emacs/22.1/lisp/play'
 alias isntall='install'
 
 # Don't change. The following determines where gzn is installed.
-gzn=$HOME/.gzn
+if [ ! -d "$HOME/.gzn" ]; then
+	gzn=$HOME/.gzn
+fi
+
+
 
 # htop
 alias htop='sudo htop; echo oof123'
