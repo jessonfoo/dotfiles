@@ -12,6 +12,9 @@ fi
 
 # Customize to your needs...
 
+
 for config_file ($HOME/.gzn/zsh/*.zsh) source $config_file
+if [[ -s "${ZDOTDIR:-$HOME}/.nvm/init.zsh" ]]; then
     export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
+fi
