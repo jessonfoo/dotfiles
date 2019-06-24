@@ -270,6 +270,7 @@ alias rncglog="cd node_modules/react-native/third-party/glog-*; ../../scripts/io
 #superUser
 alias sudoself="sudo su $USER"
 alias hdu="diskutil"
+<<<<<<< HEAD
 alias rn="react-native"
 alias rni="rn init"
 alias rnri="rn run-ios"
@@ -283,3 +284,10 @@ alias schown="sudo chown"
 alias schmod="sudo chmod"
 
 alias tmce="vim $HOME/.tmux.conf"
+=======
+<<<<<<< HEAD
+alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+=======
+ alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+>>>>>>> update gitconfig && colors
+>>>>>>> origin/master
