@@ -281,3 +281,5 @@ alias npmisd="npm install --save-dev"
 
 alias schown="sudo chown"
 alias schmod="sudo chmod"
+
+alias tmce="vim $HOME/.tmux.conf"
