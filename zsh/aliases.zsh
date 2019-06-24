@@ -270,7 +270,6 @@ alias rncglog="cd node_modules/react-native/third-party/glog-*; ../../scripts/io
 #superUser
 alias sudoself="sudo su $USER"
 alias hdu="diskutil"
-<<<<<<< HEAD
 alias rn="react-native"
 alias rni="rn init"
 alias rnri="rn run-ios"
