@@ -1,0 +1,1 @@
+/Users/jesson/.gzn copy/vim

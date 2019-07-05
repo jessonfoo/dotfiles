@@ -2,6 +2,5 @@
 path=(
   $path
   $HOME/.gzn/bin
-  $HOME/.gzn/bin/gzn
 )
 

@@ -100,10 +100,10 @@ fi
 alias lsg='ll | grep -i '
 
 # Alias Editing
-alias ae='vim $gzn/zsh/aliases.zsh' #alias edit
-alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
 alias vimr="vim --remote"
 alias gvimr="gvim --remote"
+alias ae='vim $gzn/zsh/aliases.zsh' #alias edit
+alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
 # vim using
 # mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
@@ -268,3 +268,5 @@ alias rn="react-native"
 alias rni="rn init"
 alias nig="npm install -g"
 alias lsis="lsof -i :8081"
+alias -g ___='${"${(f@)$(eval "$(fc -ln -1)")}": -1}'
+
