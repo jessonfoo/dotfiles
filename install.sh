@@ -20,7 +20,8 @@ if [ ! -d "$HOME/.gzn" ]; then
             # Install Homebrew from source https://brew.sh/
             /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
         else
-            brew update
+            brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor
+            brew install macvim
         fi
 
         which -s git
@@ -51,7 +52,8 @@ if [ ! -d "$HOME/.gzn" ]; then
 
     echo "Installing jesson's dot files to .gzn"
     git clone --depth=1 https://github.com/jessonfoo/dotfiles.git "$HOME/.gzn"
-    cd "$HOME/.gzn"
+    gzn="$HOME/.gzn"
+    cd $gzn
     [ "$1" = "ask" ] && export ASK="true"
     rake install
 else

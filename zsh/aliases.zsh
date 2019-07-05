@@ -8,7 +8,11 @@ alias games='/usr/share/emacs/22.1/lisp/play'
 alias isntall='install'
 
 # Don't change. The following determines where gzn is installed.
-gzn=$HOME/.gzn
+if [ ! -d "$HOME/.gzn" ]; then
+  gzn=$HOME/.gzn
+fi
+
+
 
 # htop
 alias htop='sudo htop; echo oof123'
@@ -26,16 +30,16 @@ fi
 alias mbackup="mackup backup"
 
 # Lunchy commands [ for launchctl control]
-alias lc='lunchy'
-alias lcls='lunchy ls'
-alias lcs='lunchy stop'
-alias lcstart='lunchy start -w'
-alias lcr='lunchy restart'
-alias lcst='lunchy status'
-alias lcin='lunchy install'
-alias lcunin='lunchy uninstall'
-alias lcshow='lunchy show'
-alias lce='lunchy edit'
+  alias lc='lunchy'
+  alias lcls='lunchy ls'
+  alias lcs='lunchy stop'
+  alias lcstart='lunchy start -w'
+  alias lcr='lunchy restart'
+  alias lcst='lunchy status'
+  alias lcin='lunchy install'
+  alias lcunin='lunchy uninstall'
+  alias lcshow='lunchy show'
+  alias lce='lunchy edit'
 
 # kill all applications by user
 alias fuckitall='sudo killall -u Jesson -m .'
@@ -105,10 +109,10 @@ alias gvimr="gvim --remote"
 alias ae='vim $gzn/zsh/aliases.zsh' #alias edit
 alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
 # vim using
-# mvim --version > /dev/null 2>&1
+mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
 if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="vim"
+  alias vim="vim --clean -V"
   alias mvim="mvim"
   alias vi="mvim"
 fi
@@ -258,15 +262,29 @@ alias bri="brew install"
 alias bru="brew upgrade"
 alias brd="brew doctor"
 alias brci='brew cask install --appdir="/Applications"'
+alias rnnitp="./node_modules/react-native/scripts/ios-install-third-party.sh"
+alias rncglog="cd node_modules/react-native/third-party/glog-*; ../../scripts/ios-configure-glog.sh; cd-"
 
+
+
+#superUser
 alias sudoself="sudo su $USER"
 alias hdu="diskutil"
-alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
-
-
 alias rn="react-native"
 alias rni="rn init"
+alias rnri="rn run-ios"
 alias nig="npm install -g"
 alias lsis="lsof -i :8081"
+<<<<<<< HEAD
 alias -g ___='${"${(f@)$(eval "$(fc -ln -1)")}": -1}'
 
+=======
+alias minexmr='sudo /Users/jessonfoo/Extracted/minergate-cli/minergate-cli -user jessonfoo@gmail.com -xmr'
+alias oo="open ."
+alias npmisd="npm install --save-dev"
+
+alias schown="sudo chown"
+alias schmod="sudo chmod"
+
+alias tmce="vim $HOME/.tmux.conf"
+>>>>>>> 0f6958e349c45c098d7d344e868a23091b1e93a0

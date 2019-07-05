@@ -1,113 +1,196 @@
-# === EDITOR ===
-Pry.editor = 'vi'
+ gem "pry"
+ gem "pry-rails"
+ gem "pry-byebug"
+ gem "pry-stack_explorer"
+ gem "pry-doc"
+ gem "pry-state"
+ gem "pry-toys"
+ gem "pry-rescue"
+ gem "pry-reload"
 
-# == Pry-Nav - Using pry as a debugger ==
-Pry.commands.alias_command 'c', 'continue' rescue nil
-Pry.commands.alias_command 's', 'step' rescue nil
-Pry.commands.alias_command 'n', 'next' rescue nil
+if defined?(::Rails) && Rails.env
+  if Rails::VERSION::MAJOR == 3
+    verbose, $VERBOSE = $VERBOSE, nil
+    if defined?(Rails::Console)
+      Rails::Console::IRB = ::Pry unless Rails::Console::IRB == ::Pry
+    end
+    $VERBOSE = verbose
 
-# === CUSTOM PROMPT ===
-# This prompt shows the ruby version (useful for RVM)
-Pry.prompt = [proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} > " }, proc { |obj, nest_level, _| "#{RUBY_VERSION} (#{obj}):#{nest_level} * " }]
+    unless defined? ::Pry::ExtendCommandBundle
+      ::Pry::ExtendCommandBundle = Module.new
+    end
+  end
 
-# === Listing config ===
-# Better colors - by default the headings for methods are too 
-# similar to method name colors leading to a "soup"
-# These colors are optimized for use with Solarized scheme 
-# for your terminal
-Pry.config.ls.separator = "\n" # new lines between methods
-Pry.config.ls.heading_color = :magenta
-Pry.config.ls.public_method_color = :green
-Pry.config.ls.protected_method_color = :yellow
-Pry.config.ls.private_method_color = :bright_black
+  if defined?(Rails) && Rails::VERSION::MAJOR == 4 && Rails.application
+    unless Rails.application.config.console == ::Pry
+      Rails.application.config.console = ::Pry
+    end
+  end
 
-# == PLUGINS ===
-# awesome_print gem: great syntax colorized printing
-# look at ~/.aprc for more settings for awesome_print
+  if ((Rails::VERSION::MAJOR == 3 && Rails::VERSION::MINOR >= 2) ||
+      Rails::VERSION::MAJOR == 4)
+    unless defined? ::Rails::ConsoleMethods
+      require 'rails/console/app'
+      require 'rails/console/helpers'
+
+      TOPLEVEL_BINDING.eval('self').extend ::Rails::ConsoleMethods
+    end
+  end
+end
+
+
+Pry::Commands.block_command "noconflict", "Rename step to sstep and next to nnext" do
+  Pry::Commands.rename_command("nnext", "next")
+  Pry::Commands.rename_command("bbreak", "break")
+end
+
+Pry::Commands.block_command "unnoconflict", "Revert to normal next and break" do
+  Pry::Commands.rename_command("next", "nnext")
+  Pry::Commands.rename_command("break", "bbreak")
+end
+
+## Useful Collections
+
+def a_array
+  (1..6).to_a
+end
+
+def a_hash
+  {hello: "world", free: "of charge"}
+end
+
+## Benchmarking
+
+def do_time(repetitions = 100, &block)
+  require 'benchmark'
+  Benchmark.bm{|b| b.report{repetitions.times(&block)}}
+end
+
+
+Pry.config.color = true
+Pry.config.prompt = Pry::NAV_PROMPT
+
+Pry.config.commands.alias_command "h", "hist -T 20", desc: "Last 20 commands"
+Pry.config.commands.alias_command "hg", "hist -T 20 -G", desc: "Up to 20 commands matching expression"
+Pry.config.commands.alias_command "hG", "hist -G", desc: "Commands matching expression ever used"
+Pry.config.commands.alias_command "hr", "hist -r", desc: "hist -r <command number> to run a command"
+
+if defined?(PryByebug)
+   def pry_debug
+     Pry.commands.alias_command 't', 'show-stack'
+     Pry.commands.alias_command 's', 'step'
+     Pry.commands.alias_command 'n', 'next'
+     Pry.commands.alias_command 'c', 'continue'
+     Pry.commands.alias_command 'f', 'finish'
+     Pry.commands.alias_command 'u', 'up'
+     Pry.commands.alias_command 'd', 'down'
+     Pry.commands.alias_command 'b', 'break'
+     Pry.commands.alias_command 'w', 'whereami'
+
+     puts "Debugging Shortcuts"
+     puts 'w  :  whereami'
+     puts 's  :  step'
+     puts 'n  :  next'
+     puts 'c  :  continue'
+     puts 'f  :  finish'
+     puts 'Stack movement'
+     puts 't  :  show-stack'
+     puts 'ff :  frame'
+     puts 'u  :  up'
+     puts 'd  :  down'
+     puts 'b  :  break'
+     ""
+   end
+
+   # Longer shortcuts
+   Pry.commands.alias_command 'ff', 'frame'
+
+   Pry.commands.alias_command 'sss', 'show-stack'
+   Pry.commands.alias_command 'ss', 'step'
+   Pry.commands.alias_command 'nn', 'next'
+   Pry.commands.alias_command 'cc', 'continue'
+   Pry.commands.alias_command 'fin', 'finish'
+   Pry.commands.alias_command 'uu', 'up'
+   Pry.commands.alias_command 'dd', 'down'
+   Pry.commands.alias_command 'bb', 'break'
+   Pry.commands.alias_command 'ww', 'whereami'
+end
+
+if defined?(::Rails) && Rails.env && Rails.env.test? && ENV["PRY_LONG"].blank?
+  pry_debug
+end
+
+
 begin
   require 'awesome_print'
-  # The following line enables awesome_print for all pry output,
-  # and it also enables paging
-  Pry.config.print = proc {|output, value| Pry::Helpers::BaseHelpers.stagger_output("=> #{value.ai}", output)}
-
-  # If you want awesome_print without automatic pagination, use the line below
   # Pry.config.print = proc { |output, value| output.puts value.ai }
+  AwesomePrint.pry!
 rescue LoadError => err
-  puts "gem install awesome_print  # <-- highly recommended"
+  puts "no awesome_print :("
 end
 
-# === CUSTOM COMMANDS ===
-# from: https://gist.github.com/1297510
-default_command_set = Pry::CommandSet.new do
-  command "copy", "Copy argument to the clip-board" do |str|
-     IO.popen('pbcopy', 'w') { |f| f << str.to_s }
-  end
-
-  command "clear" do
-    system 'clear'
-    if ENV['RAILS_ENV']
-      output.puts "Rails Environment: " + ENV['RAILS_ENV']
+my_hook = Pry::Hooks.new.add_hook(:before_session, :add_dirs_to_load_path) do
+  # adds the directories /spec and /test directories to the path if they exist and not already included
+  #
+  dir = `pwd`.chomp
+  dirs_added = []
+  %w(spec test presenters lib).map{ |d| "#{dir}/#{d}" }.each do |p|
+    if File.exist?(p) && !$:.include?(p)
+      $: << p
+      dirs_added << p
     end
   end
-
-  command "sql", "Send sql over AR." do |query|
-    if ENV['RAILS_ENV'] || defined?(Rails)
-      pp ActiveRecord::Base.connection.select_all(query)
-    else
-      pp "No rails env defined"
-    end
-  end
-  command "caller_method" do |depth|
-    depth = depth.to_i || 1
-    if /^(.+?):(\d+)(?::in `(.*)')?/ =~ caller(depth+1).first
-      file   = Regexp.last_match[1]
-      line   = Regexp.last_match[2].to_i
-      method = Regexp.last_match[3]
-      output.puts [file, line, method]
-    end
-  end
+  puts "Added #{ dirs_added.join(", ") } to load path in ~/.pryrc." if dirs_added.present?
 end
 
-Pry.config.commands.import default_command_set
-
-
-# === CONVENIENCE METHODS ===
-# Stolen from https://gist.github.com/807492
-# Use Array.toy or Hash.toy to get an array or hash to play with
-class Array
-  def self.toy(n=10, &block)
-    block_given? ? Array.new(n,&block) : Array.new(n) {|i| i+1}
-  end
+# Hit Enter to repeat last command
+Pry::Commands.command /^$/, "repeat last command" do
+  _pry_.run_command Pry.history.to_a.last
 end
 
-class Hash
-  def self.toy(n=10)
-    Hash[Array.toy(n).zip(Array.toy(n){|c| (96+(c+1)).chr})]
-  end
-end
+my_hook.exec_hook(:before_session)
 
-# === COLOR CUSTOMIZATION ===
-# Everything below this line is for customizing colors, you have to use the ugly
-# color codes, but such is life. 
-CodeRay.scan("example", :ruby).term # just to load necessary files
-# Token colors pulled from: https://github.com/rubychan/coderay/blob/master/lib/coderay/encoders/terminal.rb
 
-$LOAD_PATH << File.dirname(File.realpath(__FILE__))
+puts "Loaded ~/.pryrc"
+puts
+def more_help
+  puts "Helpful shortcuts:"
+  puts "hh  : hist -T 20       Last 20 commands"
+  puts "hg : hist -T 20 -G    Up to 20 commands matching expression"
+  puts "hG : hist -G          Commands matching expression ever used"
+  puts "hr : hist -r          hist -r <command number> to run a command"
+  puts
 
-# In CodeRay >= 1.1.0 token colors are defined as pre-escaped ANSI codes
-if Gem::Version.new(CodeRay::VERSION) >= Gem::Version.new('1.1.0')
-  require "escaped_colors"
-else
-  require "unescaped_colors"
-end
-
-module CodeRay
-  module Encoders
-    class Terminal < Encoder
-      # override old colors
-      TERM_TOKEN_COLORS.each_pair do |key, value|
-        TOKEN_COLORS[key] = value
-      end
-    end
-  end
-end
+  puts "Samples variables"
+  puts "a_array  :  [1, 2, 3, 4, 5, 6]"
+  puts "a_hash   :  { hello: \"world\", free: \"of charge\" }"
+  puts
+  puts "helper   : Access Rails helpers"
+  puts "app      : Access url_helpers"
+  puts
+  puts "require \"rails_helper\"              : To include Factory Girl Syntax"
+  puts "include FactoryGirl::Syntax::Methods  : To include Factory Girl Syntax"
+  puts
+  puts "or if you defined one..."
+  puts "require \"pry_helper\""
+  puts
+  puts "Sidekiq::Queue.new.clear              : To clear sidekiq"
+  puts "Sidekiq.redis { |r| puts r.flushall } : Another clear of sidekiq"
+  puts
+  puts "Debugging Shortcuts"
+  puts 'ss  :  step'
+  puts 'nn  :  next'
+  puts 'cc  :  continue'
+  puts 'fin :  finish'
+  puts 'uu  :  up'
+  puts 'dd  :  down'
+  puts 'bb  :  break'
+  puts 'ww  :  whereami'
+  puts 'ff  :  frame'
+  puts 'sss :  show-stack'
+  puts '$   :  show whole method of context'
+  puts
+  puts "Run 'pry_debug' to display shorter debug shortcuts"
+  ""
+ end
+ puts "Run 'more_help' to see tips"

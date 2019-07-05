@@ -110,7 +110,7 @@
   # the usual default is to push all branches
   default = upstream
 [core]
-  autocrlf = false
+	autocrlf = input
   editor = vim
   excludesfile = ~/.gzn/git/gitignore
 [advice]
@@ -127,11 +127,13 @@
 [include]
   path = .gitconfig.user
 [user]
-	name = jesson foo
-	email = jessonf@northvillagegroup.com
+	name = jesson Foo
+	email = jessonfoo@gmail.com
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[gui]
+	recentrepo =

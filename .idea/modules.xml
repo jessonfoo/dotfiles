@@ -3,6 +3,17 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/.yadr.iml" filepath="$PROJECT_DIR$/.idea/.yadr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/investigate.vim.iml" filepath="$PROJECT_DIR$/.idea/modules/investigate.vim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/splitjoin.vim.iml" filepath="$PROJECT_DIR$/.idea/modules/splitjoin.vim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-easymotion.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-easymotion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-multiple-cursors.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-multiple-cursors.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-polyglot.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-polyglot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-ruby-refactoring.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-entire.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-entire.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-function.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-function.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-rubyblock.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/vim-textobj-user.iml" filepath="$PROJECT_DIR$/.idea/modules/vim-textobj-user.iml" />
     </modules>
   </component>
 </project>
