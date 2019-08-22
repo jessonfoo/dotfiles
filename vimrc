@@ -114,7 +114,7 @@ set ignorecase      " Ignore case when searching...
 set smartcase       " ...unless we type a capital
 
 " ================ Custom Settings ========================
-so ~/.yadr/vim/settings.vim
+so ~/.gzn/vim/settings.vim
 let g:molokai_original=1
 let g:rehash256=1
 color molokai
