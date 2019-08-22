@@ -112,9 +112,7 @@ alias gvimr="gvim --remote"
 mvim --version > /dev/null 2>&1
 MACVIM_INSTALLED=$?
 if [ $MACVIM_INSTALLED -eq 0 ]; then
-  alias vim="vim --clean -V"
-  alias mvim="mvim"
-  alias vi="mvim"
+  alias vim="mvim -v"
 fi
 
 
