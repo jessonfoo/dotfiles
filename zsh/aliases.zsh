@@ -215,8 +215,8 @@ alias gi='gem install '
 
 # TODOS
 # This uses NValt (NotationalVelocity alt fork) - http://brettterpstra.com/project/nvalt/
-# to find the note called 'todo'
 alias todo='open nvalt://find/todo'
+# to find the note called 'todo'
 
 # Forward port 80 to 3000
 alias portforward='sudo ipfw add 1000 forward 127.0.0.1,3000 ip from any to any 80 in'
@@ -281,12 +281,7 @@ alias npmisd="npm install --save-dev"
 
 alias schown="sudo chown"
 alias schmod="sudo chmod"
-
 alias tmce="vim $HOME/.tmux.conf"
-=======
-<<<<<<< HEAD
-alias minexmr='sudo  /Users/jesson/mg-cli/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
-=======
- alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
->>>>>>> update gitconfig && colors
->>>>>>> origin/master
+alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
+
+alias rtestsocaml="OCAMLPATH=dep dune runtest -f"

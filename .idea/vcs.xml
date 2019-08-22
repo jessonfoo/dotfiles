@@ -2,6 +2,7 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/nvm" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vim/bundle/AnsiEsc.vim" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vim/bundle/AutoTag" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/vim/bundle/IndexedSearch" vcs="Git" />

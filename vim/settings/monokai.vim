@@ -1,6 +1,7 @@
 " Vim color file
 " " Maintainer:  Damien Gombault <desintegr@gmail.com>
 " " WWW:
+/Users/jessonfoo/.gzn/vim/settings/monokai.vim
 " http://desintegr.googlecode.com/svn/config/vim/colors/monokai.vim
 " " Last Change: 2008 Feb 27
 " " Version:     0.1.3
