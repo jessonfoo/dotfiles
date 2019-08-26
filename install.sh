@@ -5,11 +5,14 @@ if [ ! -d "$HOME/.gzn" ]; then
     unamestr=$(uname)
     if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
+        printf >&2 "running apt-get update \n \n ";
+        sudo apt-get update;
         #      hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo apt-get update; sudo apt-get install linuxbrew-wrapper;}
         hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with apt-get \n \n ";
         sudo apt-get install git; }
         hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with apt-get \n \n";
-        sudo apt-get install ruby; }
+        sudo apt-get install ruby; 
+        }
         hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install rake\n \n";
         gem install rake; }
     elif [[ $unamestr == 'Darwin' ]]; then
