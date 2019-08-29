@@ -5,11 +5,27 @@ if [ ! -d "$HOME/.gzn" ]; then
     unamestr=$(uname)
     if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
+      pkgmgr='unknown'
+      declare -A osInfo;
+      sInfo[/etc/redhat-release]=yum
+      osInfo[/etc/arch-release]=pacman
+      osInfo[/etc/gentoo-release]=emerge
+      osInfo[/etc/SuSE-release]=zypp
+      osInfo[/etc/debian_version]=apt-get
+      for f in ${!osINfo[@]}
+      do
+        if [[ -f $f ]];then
+          pkgmgr=""'${osInfo[$f]}'"";
+
+        fi
+      done
+
+        $pkgmgr update && $pgkmg install ruby
         #      hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo apt-get update; sudo apt-get install linuxbrew-wrapper;}
-        hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with apt-get \n \n ";
-        sudo apt-get install git; }
-        hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with apt-get \n \n";
-        sudo apt-get install ruby; }
+        hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with $pkgmgr \n \n ";
+        sudo $pkgmgr install git; }
+        hash ruby 2>/dev/null || { printf >&2 "unable to find ruby \n attempting to install ruby with $pkgmgr \n \n";
+        sudo $pkgmgr install ruby; }
         hash rake 2>/dev/null || { printf >&2 "unable to find rake \n attempting to install rake\n \n";
         gem install rake; }
     elif [[ $unamestr == 'Darwin' ]]; then
