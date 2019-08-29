@@ -16,7 +16,7 @@ if [ ! -d "$HOME/.gzn" ]; then
       for f in ${!osINfo[@]}
       do
         if [[ -f $f ]];then
-          pkgmgr='${osInfo[$f]}';
+          $pkgmgr='${osInfo[$f]}';
       fi
   done
   printf >&2 "running $pkgmgr update \n \n ";
