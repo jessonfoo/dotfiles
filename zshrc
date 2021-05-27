@@ -18,3 +18,5 @@ if [[ -s "${ZDOTDIR:-$HOME}/.nvm/init.zsh" ]]; then
     export NVM_DIR="$HOME/.nvm"
   . "/usr/local/opt/nvm/nvm.sh"
 fi
+export gzn="$HOME/.gzn/"
+
