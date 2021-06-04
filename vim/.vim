@@ -1,1 +1,1 @@
-/Users/Jesson/.yadr/vim
+/Users/jessonfoo/.yadr/vim

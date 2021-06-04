@@ -2,485 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74a8b183-1da0-447c-b2ed-66e8740e9c26" name="Deafult" comment="Add &lt;silent&gt; to &lt;CR&gt; binding&#10;Merge pull request #374 from easymotion/reviewdog&#10;&#10;CI: run vint with reviewdog&#10;Moved styles into their own css file.&#10;&#10;It's a bit of a phaff to find the path to the CSS file. The method I'm&#10;using works when the markdown-preview plugin is loaded with&#10;Pathogen.vim, but I'm not sure if it will work if the plugin is loaded&#10;the traditional way.&#10;Second attempt to fix YouCompleteMe issue (#92)&#10;&#10;Squashed from two commits:&#10;&#10;* Second attempt to fix YouCompleteMe issue&#10;&#10;* VimEnter also has to be ignored&#10;Fix blank lines issue&#10;&#10;In #254, probably because the tag is followed by &lt;CR&gt;, cstta&lt;CR&gt; sets&#10;regtype 'V'(linewise) though its keeper doesn't end with &lt;CR&gt;.  And&#10;setreg() adds extra &lt;CR&gt; at @&quot;.  Remove this extra &lt;CR&gt; and fix adding&#10;&lt;CR&gt; method.&#10;Version 1.1.1: debug (stop beeping)&#10;explicitly set locale to C for sorting so README sorts same on all systems (#348)&#10;&#10;back to boooring&#10;Documentation update part 2: content&#10;Merge branch 'revert-marks'&#10;&#10;Close gh-59.&#10;Merge pull request #3 from joekur/support-js-jsx&#10;&#10;Support for js and jsx specs&#10;Merge pull request #190 from hhatto/improve-managepy&#10;&#10;improve manage.py completion #188&#10;Remove trailing slash from auto-closing tags (#1081)&#10;&#10;This breaks compatibility with XHTML (see #845).&#10;The slashes are even forbidden in HTML4 (but optional in HTML5).&#10;Source: &lt;http://xahlee.info/js/html5_non-closing_tag.html&gt;&#10;Merge pull request #7 from assaflavie/master&#10;&#10;copy paste error fixed in readme&#10;README: document that ZSH 4.3 or newer is required&#10;&#10;closes #24&#10;Try to fix issue #17 (async command execution on Windows without DLL)&#10;&#10;See issue 17 on GitHub:&#10;  https://github.com/xolox/vim-misc/issues/17&#10;Add doc/tags to git ignores.&#10;Merge pull request #125 from acatton/fix-121&#10;&#10;Fix #121: sudo syntax highlighting incorrectly&#10;Mention that a new window will be opened for :NR! if hidden is not set&#10;Merge pull request #55 from ldong/master&#10;&#10;Added only use file_line upon files not directory&#10;Merge pull request #10 from sheerun/patch-1&#10;&#10;Set proper comment string on tmux.conf&#10;Rust closures with bracket counting&#10;Version 070503: Fixed problem with 'smartcase'. Checksum 726910263&#10;Manual: update URL for foodcritic.&#10;Merge pull request #31 from boatrite/zb-fix-describe&#10;&#10;Highlight describe in RSpec.describe&#10;Add a help tag for :Tabularize&#10;&#10;Fixes #45&#10;Add copyright notice and vim license&#10;Create the Normal highlight if it doesn't exist&#10;&#10;This can happen in versions of vim built without X support, like vim.nox&#10;in Debian.&#10;&#10;Fixes #9&#10;Merge pull request #851 from xTire/master&#10;&#10;Fix misspellings in README_ZH_CN.md&#10;Merge branch 'prepare-for-0.3.3'&#10;Document usage of multiple platforms (issue #85)&#10;&#10;See also issue #85 on GitHub:&#10;  https://github.com/xolox/vim-session/issues/85&#10;Merge pull request #1 from taybin/patch-1&#10;&#10;use function! instead of function&#10;Fix :0Dispatch&#10;&#10;Closes https://github.com/tpope/vim-rake/issues/36&#10;Version 1.13&#10;&#10;Use a defaultdict for easier appending.&#10;Pass around dir for found tags file for better integration with fugitive (thanks to Markus Bertheau).&#10;Remove mapping of @&#10;&#10;This key should not be stolen! It's used for macros and YR does&#10;something bad with it, causing us to have to hit enter to use the&#10;macro.&#10;Merge branch 'marabesi-master'&#10;&#10;* marabesi-master:&#10;  Use bash syntax highlighting for terminal commands in the readme&#10;  Add empty lines after fenced code blocks&#10;  Update README.markdown&#10;gitcommit: use string width not character count&#10;Merge pull request #605 from jsit/jsit/css-min-keyword-604&#10;&#10;Change css, scss, and sass Omni input pattern to match min_keyword_length&#10;delete global functions after the test case&#10;Version 1.52&#10;&#10;- FIX: Correct forward-to-end motion over lowercase part in &quot;lowerCamel&quot;. Found this by chance in GitHub fork by Kevin Lee (bkad).&#10;- BUG: Correct wrong stop on second letter of ACRONYM at the beginning of a word &quot;AXBCText&quot;.&#10;- The motion functionality is automatically tested via a runVimTests (vimscript #2565) test suite.&#10;update zshenv&#10;Add skip_forgery_protection to syntax highlighting&#10;Improve parser version documentation&#10;&#10;See #248.&#10;Merge pull request #670 from jteplitz602/jteplitz602-readme&#10;&#10;Update README.md to reflect project status&#10;Use real visual mode mappings.&#10;&#10;The normal mode mappings that start with &quot;v&quot; introduce a mapping delay when entering visual mode; this is irritating. Instead, define the mappings directly in visual mode, and disregard the previous selection with &lt;C-u&gt; prepended to the function call, so it works the same.&#10;docs&#10;fix last commit. Thanks to z0rc&#10;Merge pull request #7 from BurningLutz/master&#10;&#10;support async modifier&#10;Remove FugitiveGenerate() in favor of FugitiveFind()&#10;Version 0.6: Initial upload&#10;Updated documentation&#10;Fix PATH string building (#10)&#10;&#10;References https://github.com/tpope/vim-rvm/issues/5&#10;Force sort to recalculate the cached sortKey. (#898)&#10;&#10;* Force sort to recalculate the cached sortKey.&#10;&#10;The problem in issue #880 was caused by the sort using the old sortKey.&#10;For example, given nodes A, B, and C, if B were renamed to D, the sort&#10;was still using B as its sortKey, thus not moving it.&#10;&#10;It's a bit of a hack, but if we set g:NERDTreeOldSortOrder to an empty&#10;list, the cached sortKey will be recalculated. I did the same thing for&#10;both the Copy and Add functions as well.&#10;&#10;* Add a comment to explain the let ... = [] statement.&#10;Restore legacy maps&#10;Update README.md&#10;Version 1.13.2&#10;&#10;Another bug fix:  either 1.13 or 1.13.1 broke the behavior of finding a matching construct that starts after the cursor.&#10;Add deprecation notice&#10;Merge pull request #34 from Jagua/fix-built-in-function-check&#10;&#10;fix method for detecting whether exists built-in function.&#10;SneakEnter, SneakLeave events&#10;&#10;closes #128&#10;fix replacing Namespace::Exception =&gt; ex&#10;Merge branch 'master' of github:xsunsmile/showmarks&#10;Only define &lt;Leader&gt;* mappings if available&#10;&#10;If user has defined &lt;Leader&gt;* mappings in their vimrc, the mappings here&#10;won't apply.&#10;YAML has meaningful indentation.&#10;Merge pull request #230 from Hinidu/patch-1&#10;&#10;Support for the terraform filetype&#10;Merge branch 'prepare-for-0.0.4'&#10;Merge branch 'prepare-for-0.4.0'&#10;Merge pull request #221 from thinca/remove-autocmd&#10;&#10;Remove unnecessary autocmd&#10;update vimup&#10;Merge pull request #7 from joshuacronemeyer/master&#10;&#10;support for v3 iterm applescript dictionary changes&#10;Version 12&#10;&#10;* changed conc -&gt; cole for vim 7.3's built-in conceal mode&#10;* included some additional escape sequences&#10;Improve visual select to retain code highlighting colors&#10;Version 2.0&#10;&#10;removed &quot;'echo hi'&quot; from the script.&#10;&#10;added rake to the gemfile as it is needed by travis&#10;Merge pull request #20 from BrandonMathis/master&#10;&#10;Tripple ` for named markdownCodeDelimiter&#10;Note terminal mode incompatability&#10;Add support for alternative real path API&#10;Merge pull request #260 from aschrab/command-window&#10;&#10;Do setup for command windows&#10;Updates output&#10;Remove outdated plugin references&#10;add CTRL-M for multi-line markdown code snippets&#10;Set and unset completeopt in htmlEn and htmlDis&#10;&#10;Fucking Bitbucket&#10;Merge pull request #26 from bovine3dom/master&#10;&#10;Ensure Cygwin uses cygstart rather than *-open&#10;Handle case where global Func() exists&#10;&#10;Closes https://github.com/tpope/vim-abolish/issues/68&#10;Simplify regex using \k">
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/AnsiEsc.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/AutoTag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/IndexedSearch" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/NrrwRgn" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/YankRing.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/ag.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/argtextobj.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/base16-vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/camelcasemotion" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/change-inside-surroundings.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/color_highlight" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/csapprox" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/ctrlp.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/ctrlr.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/delimitMate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/file-line" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/gist-vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/gitv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/greplace.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/gruvbox" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/gundo.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/investigate.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/lastpos.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/lightline.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/matchit.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/neocomplete" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/nerdtree" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/rspec.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/showmarks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/splitjoin.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/sudo.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/syntastic" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/tabular" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/tcomment_vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/textobj-word-column.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/tlib_vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/tmux.vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-abolish" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-addon-mw-utils" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-bundler" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-change-hash-syntax" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-colors-solarized" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-easymotion" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-endwise" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-flavored-markdown" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-fugitive" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-git" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-html-escape" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-indent-guides" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-indentobject" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-iterm-rspec" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-markdown-preview" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-misc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-multiple-cursors" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-nerdtree-tabs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-polyglot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-ragtag" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-rails" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-rake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-repeat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-ruby" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-ruby-refactoring" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-rvm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-session" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-sneak" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-snipmate" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-snippets" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-spec-finder" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-surround" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-datetime" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-entire" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-function" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-function-javascript" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-rubyblock" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-rubysymbol" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-underscore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-textobj-user" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-tmux-navigator" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-unimpaired" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vim-visual-star-search" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/vundle" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvim/bundle/webapi-vim" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/nvm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/git/gitconfig" beforeDir="false" afterPath="$PROJECT_DIR$/git/gitconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/git/gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/git/gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/.dockerignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/.github/ISSUE_TEMPLATE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/.mailmap" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/.npmrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/CONTRIBUTING.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/Makefile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/bash_completion" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/nvm-exec" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/&quot;nvm alias&quot; should not accept aliases with slashes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/&quot;nvm unalias&quot; should not accept aliases with slashes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/Running &quot;nvm alias &lt;aliasname&gt; &lt;target&gt;&quot; again should change the target" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/Running &quot;nvm alias &lt;aliasname&gt;&quot; should list but one alias." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/Running &quot;nvm alias&quot; lists implicit aliases when they do not exist" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/Running &quot;nvm alias&quot; lists manual aliases instead of implicit aliases when present" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/Running &quot;nvm alias&quot; should list all aliases." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/circular/nvm_resolve_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/circular/nvm_resolve_local_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/circular/setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/circular/teardown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/lts/&quot;nvm alias&quot; should ensure LTS alias dir exists" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/lts/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/lts/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/nvm_ensure_default_set" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/nvm_resolve_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/nvm_resolve_local_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Aliases/teardown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing paths/Running &quot;nvm which 0.0.2&quot; should display only version 0.0.2." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing paths/Running &quot;nvm which foo&quot; should return a nonzero exit code when not found" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls 0.0.2&quot; should display only version 0.0.2." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls 0.2&quot; should display only 0.2.x versions." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls foo&quot; should return a nonzero exit code when not found" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls io&quot; should return NA" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls node_&quot; should return a nonzero exit code when not found" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls stable&quot; and &quot;nvm ls unstable&quot; should return the appropriate implicit alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls system&quot; should include &quot;system&quot; when appropriate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls&quot; should filter out &quot;.nvm&quot;" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls&quot; should filter out &quot;versions&quot;" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls&quot; should include &quot;system&quot; when appropriate" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls&quot; should list versions in the &quot;versions&quot; directory" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Running &quot;nvm ls&quot; with node-like versioning vx.x.x should only list a matched version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Listing versions/Using a nonstandard IFS should not break" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm alias&quot; should create a file in the alias directory." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm current&quot; should display current nvm environment." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm deactivate&quot; should unset the nvm environment variables." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm install&quot; with &quot;--reinstall-packages-from&quot; requires a valid version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm install&quot; with an invalid version fails nicely" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm unalias&quot; should remove the alias file." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm uninstall&quot; should remove the appropriate directory." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm uninstall&quot; with incorrect file permissions fails nicely" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm unload&quot; should unset all function and variables." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use foo&quot; where &quot;foo&quot; is circular aborts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use iojs&quot; uses latest io.js version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use system&quot; should work as expected" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use x&quot; should create and change the &quot;current&quot; symlink" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use x&quot; should not create the &quot;current&quot; symlink if $NVM_SYMLINK_CURRENT is false" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Running &quot;nvm use&quot; should drop CR char automatically." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Sourcing nvm.sh should make the nvm command available." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Sourcing nvm.sh should not modify parameters of caller" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/iojs_version_has_solaris_binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/iojs.org-dist-index.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nodejs.org-dist-index.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nodejs.org-download-nightly-index.tab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm ls-remote iojs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm ls-remote lts.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm ls-remote node.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm ls-remote.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote LTS argon.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote LTS nightly argon.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote LTS nightly.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote LTS.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote nightly.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote stable nightly.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote stable.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_ls_remote_iojs.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_make_alias LTS alias calls.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_print_implicit_alias remote stable nightly.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/mocks/nvm_print_implicit_alias remote stable.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/node_version_has_solaris_binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm ls-remote" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm version-remote" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_add_iojs_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_alias_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_checksum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_clang_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_compare_checksum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_compute_checksum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_curl_libz_support" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_curl_use_compression" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_curl_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_die_on_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ensure_default_set" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ensure_version_installed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ensure_version_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_find_up" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_format_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_arch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_checksum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_checksum_alg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_latest missing curl or wget" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_minor_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_get_mirror" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_has" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_has_non_aliased" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_has_solaris_binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_has_system_iojs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_has_system_node" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_install_latest_npm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_install_no_progress_bar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_iojs_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_is_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_is_iojs_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_is_merged_node_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_is_natural_num" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_is_valid_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ls_current" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ls_remote" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ls_remote LTS aliases" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ls_remote nightly" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_ls_remote_iojs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_make_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_node_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_num_version_groups" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_print_alias_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_print_default_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_print_implicit_alias errors" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_print_implicit_alias success" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_print_npm_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_remote_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_remote_versions" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_strip_iojs_prefix" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_strip_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_supports_xz" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_tree_contains_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_use_if_needed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_validate_implicit_alias" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_version_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_version_greater" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/Unit tests/nvm_version_path" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/nvm should remove the last trailing slash in $NVM_DIR" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/teardown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/fast/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_check_global_modules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_detect_profile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_do_install" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_install_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_install_with_aliased_dot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_install_with_node_version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_profile_is_bash_or_zsh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_reset" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/install_script/nvm_source" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install already installed uses it" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install from source" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install two versions and use the latest one" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install version specified in .nvmrc from binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install version specified in .nvmrc from source" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/install while reinstalling packages" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_iojs/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install LTS" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install already installed uses it" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install from binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install from source" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install from source implicitly" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install from source with thread parameter" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install from source without V8 snapshot for ARM" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install hook" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install latest npm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install two versions and use the latest one" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install version specified in .nvmrc from binary" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install version specified in .nvmrc from source" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install while reinstalling packages" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/install with --latest-npm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/installation_node/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/isainfo_amd64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/isainfo_x86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/pkg_info_amd64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/pkg_info_fail" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/pkg_info_x86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/uname_osx_amd64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/uname_osx_x86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/uname_smartos_amd64" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/mocks/uname_smartos_x86" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/Running &quot;nvm current&quot; should display current nvm environment." beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/node 0.6.21 should install 0.6.21-pre" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/Preamble works and respects &quot;silent&quot; flag" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/Running &quot;nvm exec --lts&quot; should work" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/Running &quot;nvm exec 0.x&quot; should work" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/Running &quot;nvm exec&quot; should pick up .nvmrc version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm exec/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/Running &quot;nvm copy-packages $(nvm ls current)&quot; should error out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/should work as expected" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/test-npmlink/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/test-npmlink/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm reinstall-packages/works with no installs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/Running &quot;nvm run --harmony --version&quot; should work" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/Running &quot;nvm run --lts&quot; should work" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/Running &quot;nvm run 0.x&quot; should error out sensibly when 0.x is not installed" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/Running &quot;nvm run 0.x&quot; should work" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/Running &quot;nvm run&quot; should pick up .nvmrc version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm run/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm uninstall/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm uninstall/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use --lts&quot; uses latest LTS version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use --lts=foo&quot; uses latest &quot;foo&quot; LTS version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use iojs&quot; uses latest io.js version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use node&quot; uses latest stable node version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use v1.0.0&quot; uses iojs-v1.0.0 iojs version" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/Running &quot;nvm use&quot; calls &quot;nvm_die_on_prefix&quot;" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/setup_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm use/teardown_dir" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/slow/nvm_get_latest/nvm_get_latest failed redirect" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh should keep version if one is active" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh should use the default if available and no nvm node is loaded" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh with --install and .nvmrc should install it" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh with --install should install the default" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh with --no-use should not use anything" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/Sourcing nvm.sh with no default should return 0" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/setup" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/test/sourcing/teardown" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/nvm/update_test_mocks.sh" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmux/config/configstore/nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/config/configstore/nodemon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmux/config/configstore/update-notifier-nodemon.json" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/config/configstore/update-notifier-nodemon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmux/config/configstore/update-notifier-npm.json" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/config/configstore/update-notifier-npm.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmux/config/qBittorrent/qBittorrent-data.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/config/qBittorrent/qBittorrent-data.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tmux/config/qBittorrent/qBittorrent.ini" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/config/qBittorrent/qBittorrent.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vim/settings/monokai.vim" beforeDir="false" afterPath="$PROJECT_DIR$/vim/settings/monokai.vim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tmux/tmux.conf" beforeDir="false" afterPath="$PROJECT_DIR$/tmux/tmux.conf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zsh/aliases.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/aliases.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/opam.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/opam.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/.gitmodules" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/.gitmodules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/CONTRIBUTING.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/CONTRIBUTING.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/archive/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/archive/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/_lsarchive" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/_lsarchive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/_unarchive" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/_unarchive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/lsarchive" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/lsarchive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/unarchive" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/archive/functions/unarchive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/command-not-found/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/command-not-found/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/command-not-found/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/command-not-found/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/completion/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/completion/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/completion/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/completion/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/directory/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/directory/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/directory/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/directory/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-clone" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-clone" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-history" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-history" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-kbuild" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/functions/deb-kbuild" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/dpkg/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/editor/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/editor/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/editor/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/editor/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/emacs/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/emacs/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/emacs/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/emacs/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/environment/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/environment/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/environment/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/environment/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/fasd/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/fasd/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/fasd/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/fasd/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/alias.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/alias.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-hub-browse" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-hub-browse" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-hub-shorten-url" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-hub-shorten-url" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-info" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-submodule-move" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-submodule-move" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-submodule-remove" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/_git-submodule-remove" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-branch-current" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-branch-current" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-commit-lost" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-commit-lost" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-dir" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-dir" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-hub-browse" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-hub-browse" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-hub-shorten-url" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-hub-shorten-url" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-info" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-root" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-root" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-clear-interactive" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-clear-interactive" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-dropped" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-dropped" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-recover" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-stash-recover" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-submodule-move" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-submodule-move" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-submodule-remove" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/functions/git-submodule-remove" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/git/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/git/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/gnu-utility/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/gnu-utility/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/gnu-utility/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/gnu-utility/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/gpg/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/gpg/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/gpg/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/gpg/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/haskell/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/haskell/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/haskell/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/haskell/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/helper/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/helper/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/helper/functions/add-zsh-trap" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/helper/functions/add-zsh-trap" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/helper/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/helper/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/history-substring-search/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/history-substring-search/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/history-substring-search/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/history-substring-search/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/history/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/history/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/history/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/history/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/homebrew/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/homebrew/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/homebrew/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/homebrew/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/macports/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/macports/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/macports/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/macports/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/node/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/node/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/node/functions/node-doc" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/node/functions/node-doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/node/functions/node-info" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/node/functions/node-info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/node/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/node/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ocaml/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ocaml/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ocaml/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ocaml/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/_manb_mand_manp" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/_manb_mand_manp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/mand" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/mand" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/manp" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/manp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-ls-download-history" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-ls-download-history" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-rm-dir-metadata" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-rm-dir-metadata" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-rm-download-history" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/osx-rm-download-history" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/pfd" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/pfd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/pfs" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/pfs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/ql" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/ql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/tab" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/functions/tab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/osx/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/osx/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/pacman/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/pacman/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/pacman/functions/pacman-list-disowned" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/pacman/functions/pacman-list-disowned" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/pacman/functions/pacman-list-explicit" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/pacman/functions/pacman-list-explicit" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/pacman/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/pacman/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/pacman/yaourt.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/pacman/yaourt.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/perl/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/perl/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/perl/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/perl/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_minimal_setup" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_minimal_setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_nicoulaj_setup" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_nicoulaj_setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_peepcode_setup" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_peepcode_setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_sorin_setup" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_sorin_setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_steeef_setup" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/functions/prompt_steeef_setup" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/prompt/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/prompt/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/python/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/python/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/python/functions/python-info" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/python/functions/python-info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/python/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/python/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/rails/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/rails/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/rails/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/rails/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/rsync/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/rsync/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/rsync/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/rsync/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ruby/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ruby/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ruby/functions/ruby-app-root" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ruby/functions/ruby-app-root" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ruby/functions/ruby-info" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ruby/functions/ruby-info" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ruby/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ruby/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/screen/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/screen/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/screen/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/screen/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/spectrum/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/spectrum/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/spectrum/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/spectrum/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ssh/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ssh/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/ssh/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/ssh/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/syntax-highlighting/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/syntax-highlighting/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/syntax-highlighting/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/syntax-highlighting/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/terminal/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/terminal/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/terminal/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/terminal/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/tmux/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/tmux/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/tmux/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/tmux/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_cdls_popdls_pushdls" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_cdls_popdls_pushdls" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_dut" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_dut" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_mkdcd" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_mkdcd" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_prep" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_prep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_psub" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/_psub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/diff" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/diff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/dut" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/dut" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/make" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/prep" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/prep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/psub" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/psub" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/wdiff" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/functions/wdiff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/utility/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/utility/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/functions/_wake" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/functions/_wake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/functions/wake" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/wakeonlan/functions/wake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/yum/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/yum/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/modules/yum/init.zsh" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/modules/yum/init.zsh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zlogin" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zlogin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zlogout" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zlogout" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zpreztorc" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zpreztorc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zprofile" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zprofile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zshenv" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zshenv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/zsh/prezto/runcoms/zshrc" beforeDir="false" afterPath="$PROJECT_DIR$/zsh/prezto/runcoms/zshrc" afterDir="false" />
     </list>
     <list id="acb1c013-9881-41bc-ac9e-ad9f887086e2" name="Default" comment="Add &lt;silent&gt; to &lt;CR&gt; binding&#10;Merge pull request #374 from easymotion/reviewdog&#10;&#10;CI: run vint with reviewdog&#10;Moved styles into their own css file.&#10;&#10;It's a bit of a phaff to find the path to the CSS file. The method I'm&#10;using works when the markdown-preview plugin is loaded with&#10;Pathogen.vim, but I'm not sure if it will work if the plugin is loaded&#10;the traditional way.&#10;Second attempt to fix YouCompleteMe issue (#92)&#10;&#10;Squashed from two commits:&#10;&#10;* Second attempt to fix YouCompleteMe issue&#10;&#10;* VimEnter also has to be ignored&#10;Fix blank lines issue&#10;&#10;In #254, probably because the tag is followed by &lt;CR&gt;, cstta&lt;CR&gt; sets&#10;regtype 'V'(linewise) though its keeper doesn't end with &lt;CR&gt;.  And&#10;setreg() adds extra &lt;CR&gt; at @&quot;.  Remove this extra &lt;CR&gt; and fix adding&#10;&lt;CR&gt; method.&#10;Version 1.1.1: debug (stop beeping)&#10;explicitly set locale to C for sorting so README sorts same on all systems (#348)&#10;&#10;back to boooring&#10;Documentation update part 2: content&#10;Merge branch 'revert-marks'&#10;&#10;Close gh-59.&#10;Merge pull request #3 from joekur/support-js-jsx&#10;&#10;Support for js and jsx specs&#10;Merge pull request #190 from hhatto/improve-managepy&#10;&#10;improve manage.py completion #188&#10;Remove trailing slash from auto-closing tags (#1081)&#10;&#10;This breaks compatibility with XHTML (see #845).&#10;The slashes are even forbidden in HTML4 (but optional in HTML5).&#10;Source: &lt;http://xahlee.info/js/html5_non-closing_tag.html&gt;&#10;Merge pull request #7 from assaflavie/master&#10;&#10;copy paste error fixed in readme&#10;README: document that ZSH 4.3 or newer is required&#10;&#10;closes #24&#10;Try to fix issue #17 (async command execution on Windows without DLL)&#10;&#10;See issue 17 on GitHub:&#10;  https://github.com/xolox/vim-misc/issues/17&#10;Add doc/tags to git ignores.&#10;Merge pull request #125 from acatton/fix-121&#10;&#10;Fix #121: sudo syntax highlighting incorrectly&#10;Mention that a new window will be opened for :NR! if hidden is not set&#10;Merge pull request #55 from ldong/master&#10;&#10;Added only use file_line upon files not directory&#10;Merge pull request #10 from sheerun/patch-1&#10;&#10;Set proper comment string on tmux.conf&#10;Rust closures with bracket counting&#10;Version 070503: Fixed problem with 'smartcase'. Checksum 726910263&#10;Manual: update URL for foodcritic.&#10;Merge pull request #31 from boatrite/zb-fix-describe&#10;&#10;Highlight describe in RSpec.describe&#10;Add a help tag for :Tabularize&#10;&#10;Fixes #45&#10;Add copyright notice and vim license&#10;Create the Normal highlight if it doesn't exist&#10;&#10;This can happen in versions of vim built without X support, like vim.nox&#10;in Debian.&#10;&#10;Fixes #9&#10;Merge pull request #851 from xTire/master&#10;&#10;Fix misspellings in README_ZH_CN.md&#10;Merge branch 'prepare-for-0.3.3'&#10;Document usage of multiple platforms (issue #85)&#10;&#10;See also issue #85 on GitHub:&#10;  https://github.com/xolox/vim-session/issues/85&#10;Merge pull request #1 from taybin/patch-1&#10;&#10;use function! instead of function&#10;Fix :0Dispatch&#10;&#10;Closes https://github.com/tpope/vim-rake/issues/36&#10;Version 1.13&#10;&#10;Use a defaultdict for easier appending.&#10;Pass around dir for found tags file for better integration with fugitive (thanks to Markus Bertheau).&#10;Remove mapping of @&#10;&#10;This key should not be stolen! It's used for macros and YR does&#10;something bad with it, causing us to have to hit enter to use the&#10;macro.&#10;Merge branch 'marabesi-master'&#10;&#10;* marabesi-master:&#10;  Use bash syntax highlighting for terminal commands in the readme&#10;  Add empty lines after fenced code blocks&#10;  Update README.markdown&#10;gitcommit: use string width not character count&#10;Merge pull request #605 from jsit/jsit/css-min-keyword-604&#10;&#10;Change css, scss, and sass Omni input pattern to match min_keyword_length&#10;delete global functions after the test case&#10;Version 1.52&#10;&#10;- FIX: Correct forward-to-end motion over lowercase part in &quot;lowerCamel&quot;. Found this by chance in GitHub fork by Kevin Lee (bkad).&#10;- BUG: Correct wrong stop on second letter of ACRONYM at the beginning of a word &quot;AXBCText&quot;.&#10;- The motion functionality is automatically tested via a runVimTests (vimscript #2565) test suite.&#10;update zshenv&#10;Add skip_forgery_protection to syntax highlighting&#10;Improve parser version documentation&#10;&#10;See #248.&#10;Merge pull request #670 from jteplitz602/jteplitz602-readme&#10;&#10;Update README.md to reflect project status&#10;Use real visual mode mappings.&#10;&#10;The normal mode mappings that start with &quot;v&quot; introduce a mapping delay when entering visual mode; this is irritating. Instead, define the mappings directly in visual mode, and disregard the previous selection with &lt;C-u&gt; prepended to the function call, so it works the same.&#10;docs&#10;fix last commit. Thanks to z0rc&#10;Merge pull request #7 from BurningLutz/master&#10;&#10;support async modifier&#10;Remove FugitiveGenerate() in favor of FugitiveFind()&#10;Version 0.6: Initial upload&#10;Updated documentation&#10;Fix PATH string building (#10)&#10;&#10;References https://github.com/tpope/vim-rvm/issues/5&#10;Force sort to recalculate the cached sortKey. (#898)&#10;&#10;* Force sort to recalculate the cached sortKey.&#10;&#10;The problem in issue #880 was caused by the sort using the old sortKey.&#10;For example, given nodes A, B, and C, if B were renamed to D, the sort&#10;was still using B as its sortKey, thus not moving it.&#10;&#10;It's a bit of a hack, but if we set g:NERDTreeOldSortOrder to an empty&#10;list, the cached sortKey will be recalculated. I did the same thing for&#10;both the Copy and Add functions as well.&#10;&#10;* Add a comment to explain the let ... = [] statement.&#10;Restore legacy maps&#10;Update README.md&#10;Version 1.13.2&#10;&#10;Another bug fix:  either 1.13 or 1.13.1 broke the behavior of finding a matching construct that starts after the cursor.&#10;Add deprecation notice&#10;Merge pull request #34 from Jagua/fix-built-in-function-check&#10;&#10;fix method for detecting whether exists built-in function.&#10;SneakEnter, SneakLeave events&#10;&#10;closes #128&#10;fix replacing Namespace::Exception =&gt; ex&#10;Merge branch 'master' of github:xsunsmile/showmarks&#10;Only define &lt;Leader&gt;* mappings if available&#10;&#10;If user has defined &lt;Leader&gt;* mappings in their vimrc, the mappings here&#10;won't apply.&#10;YAML has meaningful indentation.&#10;Merge pull request #230 from Hinidu/patch-1&#10;&#10;Support for the terraform filetype&#10;Merge branch 'prepare-for-0.0.4'&#10;Merge branch 'prepare-for-0.4.0'&#10;Merge pull request #221 from thinca/remove-autocmd&#10;&#10;Remove unnecessary autocmd&#10;update vimup&#10;Merge pull request #7 from joshuacronemeyer/master&#10;&#10;support for v3 iterm applescript dictionary changes&#10;Version 12&#10;&#10;* changed conc -&gt; cole for vim 7.3's built-in conceal mode&#10;* included some additional escape sequences&#10;Improve visual select to retain code highlighting colors&#10;Version 2.0&#10;&#10;removed &quot;'echo hi'&quot; from the script.&#10;&#10;added rake to the gemfile as it is needed by travis&#10;Merge pull request #20 from BrandonMathis/master&#10;&#10;Tripple ` for named markdownCodeDelimiter&#10;Note terminal mode incompatability&#10;Add support for alternative real path API&#10;Merge pull request #260 from aschrab/command-window&#10;&#10;Do setup for command windows&#10;Updates output&#10;Remove outdated plugin references&#10;add CTRL-M for multi-line markdown code snippets&#10;Set and unset completeopt in htmlEn and htmlDis&#10;&#10;Fucking Bitbucket&#10;Merge pull request #26 from bovine3dom/master&#10;&#10;Ensure Cygwin uses cygstart rather than *-open&#10;Handle case where global Func() exists&#10;&#10;Closes https://github.com/tpope/vim-abolish/issues/68&#10;Simplify regex using \k&#10;&#10;Signed-off-by: jesson Foo &lt;jessonfoo@gmail.com&gt;" />
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -545,6 +74,7 @@
     </dirStrings>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
         <option value="jesson Foo &lt;jessonfoo@gmail.com&gt;" />
@@ -552,23 +82,26 @@
         <option value="Jesson" />
       </list>
     </option>
-    <option name="UPDATE_TYPE" value="MERGE" />
     <option name="PUSH_AUTO_UPDATE" value="true" />
-    <option name="ROOT_SYNC" value="SYNC" />
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/zsh/prezto" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="v1.1.2" />
       </map>
     </option>
-    <option name="AUTO_COMMIT_ON_CHERRY_PICK" value="true" />
-    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="MIXED" />
-    <option name="PUSH_TAGS">
-      <GitPushTagMode />
-    </option>
+    <option name="ROOT_SYNC" value="SYNC" />
     <option name="SIGN_OFF_COMMIT" value="true" />
-    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
+    <option name="WARN_ABOUT_DETACHED_HEAD" value="false" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/.gvimrc" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="InvalidFacetManager">
     <ignored-facets>
@@ -615,17 +148,24 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="GO_FMT" value="false" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="HbShouldOpenHtmlAsHb" value="" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1561367673096" />
+    <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="editor.config.ad.shown" value="true" />
     <property name="go.gopath.indexing.explicitly.defined" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../gzn" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
@@ -639,18 +179,6 @@
   <component name="RubyModuleManagerSettings">
     <option name="shouldAskUser" value="false" />
     <option name="shouldCreateModules" value="false" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
@@ -722,6 +250,7 @@
       <method v="2" />
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SpringUtil" SPRING_PRE_LOADER_OPTION="true" />
   <component name="SvnConfiguration">
     <configuration>$PROJECT_DIR$/../.subversion</configuration>
@@ -780,6 +309,8 @@
       <workItem from="1561830814900" duration="598000" />
       <workItem from="1562454127869" duration="5110000" />
       <workItem from="1566169149628" duration="60000" />
+      <workItem from="1622119824502" duration="1168000" />
+      <workItem from="1622337257045" duration="379000" />
     </task>
     <task id="LOCAL-00004" summary="Add &lt;silent&gt; to &lt;CR&gt; binding&#10;Merge pull request #374 from easymotion/reviewdog&#10;&#10;CI: run vint with reviewdog&#10;Moved styles into their own css file.&#10;&#10;It's a bit of a phaff to find the path to the CSS file. The method I'm&#10;using works when the markdown-preview plugin is loaded with&#10;Pathogen.vim, but I'm not sure if it will work if the plugin is loaded&#10;the traditional way.&#10;Second attempt to fix YouCompleteMe issue (#92)&#10;&#10;Squashed from two commits:&#10;&#10;* Second attempt to fix YouCompleteMe issue&#10;&#10;* VimEnter also has to be ignored&#10;Fix blank lines issue&#10;&#10;In #254, probably because the tag is followed by &lt;CR&gt;, cstta&lt;CR&gt; sets&#10;regtype 'V'(linewise) though its keeper doesn't end with &lt;CR&gt;.  And&#10;setreg() adds extra &lt;CR&gt; at @&quot;.  Remove this extra &lt;CR&gt; and fix adding&#10;&lt;CR&gt; method.&#10;Version 1.1.1: debug (stop beeping)&#10;explicitly set locale to C for sorting so README sorts same on all systems (#348)&#10;&#10;back to boooring&#10;Documentation update part 2: content&#10;Merge branch 'revert-marks'&#10;&#10;Close gh-59.&#10;Merge pull request #3 from joekur/support-js-jsx&#10;&#10;Support for js and jsx specs&#10;Merge pull request #190 from hhatto/improve-managepy&#10;&#10;improve manage.py completion #188&#10;Remove trailing slash from auto-closing tags (#1081)&#10;&#10;This breaks compatibility with XHTML (see #845).&#10;The slashes are even forbidden in HTML4 (but optional in HTML5).&#10;Source: &lt;http://xahlee.info/js/html5_non-closing_tag.html&gt;&#10;Merge pull request #7 from assaflavie/master&#10;&#10;copy paste error fixed in readme&#10;README: document that ZSH 4.3 or newer is required&#10;&#10;closes #24&#10;Try to fix issue #17 (async command execution on Windows without DLL)&#10;&#10;See issue 17 on GitHub:&#10;  https://github.com/xolox/vim-misc/issues/17&#10;Add doc/tags to git ignores.&#10;Merge pull request #125 from acatton/fix-121&#10;&#10;Fix #121: sudo syntax highlighting incorrectly&#10;Mention that a new window will be opened for :NR! if hidden is not set&#10;Merge pull request #55 from ldong/master&#10;&#10;Added only use file_line upon files not directory&#10;Merge pull request #10 from sheerun/patch-1&#10;&#10;Set proper comment string on tmux.conf&#10;Rust closures with bracket counting&#10;Version 070503: Fixed problem with 'smartcase'. Checksum 726910263&#10;Manual: update URL for foodcritic.&#10;Merge pull request #31 from boatrite/zb-fix-describe&#10;&#10;Highlight describe in RSpec.describe&#10;Add a help tag for :Tabularize&#10;&#10;Fixes #45&#10;Add copyright notice and vim license&#10;Create the Normal highlight if it doesn't exist&#10;&#10;This can happen in versions of vim built without X support, like vim.nox&#10;in Debian.&#10;&#10;Fixes #9&#10;Merge pull request #851 from xTire/master&#10;&#10;Fix misspellings in README_ZH_CN.md&#10;Merge branch 'prepare-for-0.3.3'&#10;Document usage of multiple platforms (issue #85)&#10;&#10;See also issue #85 on GitHub:&#10;  https://github.com/xolox/vim-session/issues/85&#10;Merge pull request #1 from taybin/patch-1&#10;&#10;use function! instead of function&#10;Fix :0Dispatch&#10;&#10;Closes https://github.com/tpope/vim-rake/issues/36&#10;Version 1.13&#10;&#10;Use a defaultdict for easier appending.&#10;Pass around dir for found tags file for better integration with fugitive (thanks to Markus Bertheau).&#10;Remove mapping of @&#10;&#10;This key should not be stolen! It's used for macros and YR does&#10;something bad with it, causing us to have to hit enter to use the&#10;macro.&#10;Merge branch 'marabesi-master'&#10;&#10;* marabesi-master:&#10;  Use bash syntax highlighting for terminal commands in the readme&#10;  Add empty lines after fenced code blocks&#10;  Update README.markdown&#10;gitcommit: use string width not character count&#10;Merge pull request #605 from jsit/jsit/css-min-keyword-604&#10;&#10;Change css, scss, and sass Omni input pattern to match min_keyword_length&#10;delete global functions after the test case&#10;Version 1.52&#10;&#10;- FIX: Correct forward-to-end motion over lowercase part in &quot;lowerCamel&quot;. Found this by chance in GitHub fork by Kevin Lee (bkad).&#10;- BUG: Correct wrong stop on second letter of ACRONYM at the beginning of a word &quot;AXBCText&quot;.&#10;- The motion functionality is automatically tested via a runVimTests (vimscript #2565) test suite.&#10;update zshenv&#10;Add skip_forgery_protection to syntax highlighting&#10;Improve parser version documentation&#10;&#10;See #248.&#10;Merge pull request #670 from jteplitz602/jteplitz602-readme&#10;&#10;Update README.md to reflect project status&#10;Use real visual mode mappings.&#10;&#10;The normal mode mappings that start with &quot;v&quot; introduce a mapping delay when entering visual mode; this is irritating. Instead, define the mappings directly in visual mode, and disregard the previous selection with &lt;C-u&gt; prepended to the function call, so it works the same.&#10;docs&#10;fix last commit. Thanks to z0rc&#10;Merge pull request #7 from BurningLutz/master&#10;&#10;support async modifier&#10;Remove FugitiveGenerate() in favor of FugitiveFind()&#10;Version 0.6: Initial upload&#10;Updated documentation&#10;Fix PATH string building (#10)&#10;&#10;References https://github.com/tpope/vim-rvm/issues/5&#10;Force sort to recalculate the cached sortKey. (#898)&#10;&#10;* Force sort to recalculate the cached sortKey.&#10;&#10;The problem in issue #880 was caused by the sort using the old sortKey.&#10;For example, given nodes A, B, and C, if B were renamed to D, the sort&#10;was still using B as its sortKey, thus not moving it.&#10;&#10;It's a bit of a hack, but if we set g:NERDTreeOldSortOrder to an empty&#10;list, the cached sortKey will be recalculated. I did the same thing for&#10;both the Copy and Add functions as well.&#10;&#10;* Add a comment to explain the let ... = [] statement.&#10;Restore legacy maps&#10;Update README.md&#10;Version 1.13.2&#10;&#10;Another bug fix:  either 1.13 or 1.13.1 broke the behavior of finding a matching construct that starts after the cursor.&#10;Add deprecation notice&#10;Merge pull request #34 from Jagua/fix-built-in-function-check&#10;&#10;fix method for detecting whether exists built-in function.&#10;SneakEnter, SneakLeave events&#10;&#10;closes #128&#10;fix replacing Namespace::Exception =&gt; ex&#10;Merge branch 'master' of github:xsunsmile/showmarks&#10;Only define &lt;Leader&gt;* mappings if available&#10;&#10;If user has defined &lt;Leader&gt;* mappings in their vimrc, the mappings here&#10;won't apply.&#10;YAML has meaningful indentation.&#10;Merge pull request #230 from Hinidu/patch-1&#10;&#10;Support for the terraform filetype&#10;Merge branch 'prepare-for-0.0.4'&#10;Merge branch 'prepare-for-0.4.0'&#10;Merge pull request #221 from thinca/remove-autocmd&#10;&#10;Remove unnecessary autocmd&#10;update vimup&#10;Merge pull request #7 from joshuacronemeyer/master&#10;&#10;support for v3 iterm applescript dictionary changes&#10;Version 12&#10;&#10;* changed conc -&gt; cole for vim 7.3's built-in conceal mode&#10;* included some additional escape sequences&#10;Improve visual select to retain code highlighting colors&#10;Version 2.0&#10;&#10;removed &quot;'echo hi'&quot; from the script.&#10;&#10;added rake to the gemfile as it is needed by travis&#10;Merge pull request #20 from BrandonMathis/master&#10;&#10;Tripple ` for named markdownCodeDelimiter&#10;Note terminal mode incompatability&#10;Add support for alternative real path API&#10;Merge pull request #260 from aschrab/command-window&#10;&#10;Do setup for command windows&#10;Updates output&#10;Remove outdated plugin references&#10;add CTRL-M for multi-line markdown code snippets&#10;Set and unset completeopt in htmlEn and htmlDis&#10;&#10;Fucking Bitbucket&#10;Merge pull request #26 from bovine3dom/master&#10;&#10;Ensure Cygwin uses cygstart rather than *-open&#10;Handle case where global Func() exists&#10;&#10;Closes https://github.com/tpope/vim-abolish/issues/68&#10;Simplify regex using \k">
       <created>1561356625649</created>
@@ -816,7 +347,7 @@
     </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -835,7 +366,6 @@
                   </entry>
                 </map>
               </option>
-              <option name="COLUMN_ORDER" />
             </State>
           </value>
         </entry>
@@ -866,10 +396,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
     <MESSAGE value="updatez" />
     <MESSAGE value="Update install file&#10;* add vimrc and gvimrc&#10;* add more colors&#10;* add iterm colors&#10;* todo update rake" />
     <MESSAGE value="Deafult" />

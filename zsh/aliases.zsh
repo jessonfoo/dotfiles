@@ -280,6 +280,11 @@ alias npmisd="npm install --save-dev"
 alias schown="sudo chown"
 alias schmod="sudo chmod"
 alias tmce="vim $HOME/.tmux.conf"
-alias minexmr='sudo /Users/jessonfoo/Downloads/MinerGate-cli-4.04-Mac/minergate-cli -user jessonfoo@gmail.com -fcn+xmr'
 
 alias rtestsocaml="OCAMLPATH=dep dune runtest -f"
+
+
+# Spoofing
+alias checkMac="ifconfig en0 |grep ether"
+alias spoofRandomMac="sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')"
+alias minexmr="./xmrig -o us-west.minexmr.com:443 -u 45nEqufntPvj3rSZZDdxgE5DJcPpXD5MeRu9ov76yiEARoGg4xKjhsydmJ9BTv9Uf7NsBDikmfP8VEvoRbCGLfVC4qy7u22 -k --tls --rig-id 3rSZZDdxgE5DJcPpXD5MeRu9ov76yiEARoGg4xKjhsydmJ9BTv9Uf7NsBDikmfP8VEvoRbCGLfVC4qy7u22 -k --tls --rig-id \"jesson imac\""
