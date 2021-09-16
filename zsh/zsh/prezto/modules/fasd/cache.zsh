@@ -1,6 +1,6 @@
 # add zsh hook
 _fasd_preexec() {
-  { eval "fasd --proc $(fasd --sanitize $1)"; } >> "/dev/null" 2>&1
+  { eval "fasd --proc $(fasd --sanitize $2)"; } >> "/dev/null" 2>&1
 }
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec _fasd_preexec
@@ -13,7 +13,7 @@ _fasd_zsh_cmd_complete() {
   reply=(${(f)"$(fasd --complete "$compl")"})
 }
 
-# enbale command mode completion
+# enable command mode completion
 compctl -U -K _fasd_zsh_cmd_complete -V fasd -x 'C[-1,-*e],s[-]n[1,e]' -c - \
   'c[-1,-A][-1,-D]' -f -- fasd fasd_cd
 

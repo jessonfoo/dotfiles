@@ -1,6 +1,9 @@
 " Use Vim settings, rather then Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+let g:molokai_original=1
+let g:rehash256=1
+color molokai
 
 " TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
 " source ~/.vimrc.before if it exists.
@@ -115,6 +118,3 @@ set smartcase       " ...unless we type a capital
 
 " ================ Custom Settings ========================
 so ~/..gzn/vim/settings.vim
-let g:molokai_original=1
-let g:rehash256=1
-color molokai

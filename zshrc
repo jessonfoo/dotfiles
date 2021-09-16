@@ -10,7 +10,7 @@ if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-export gzn="$HOME/.gzn"
+export gzn="$HOME/.gzn/"
 # Customize to your needs...
 for config_file ($HOME/.gzn/zsh/*.zsh) source $config_file
 

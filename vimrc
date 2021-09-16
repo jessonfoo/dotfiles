@@ -18,6 +18,7 @@ set showmode                    "Show current mode down the bottom
 set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
+set mouse=a
 
 " This makes vim act like all other editors, buffers can
 " exist in the background without being in a window.
@@ -39,6 +40,7 @@ let mapleader=","
 if filereadable(expand("~/.vim/vundles.vim"))
   source ~/.vim/vundles.vim
 endif
+au BufNewFile,BufRead *.vundle set filetype=vim
 
 " ================ Turn Off Swap Files ==============
 

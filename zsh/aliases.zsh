@@ -1,5 +1,6 @@
 # Aliases in this file are bash and zsh compatible
 
+gzn=$HOME/.gzn
 #custom  aliases
 
 alias games='/usr/share/emacs/22.1/lisp/play'
@@ -8,18 +9,13 @@ alias games='/usr/share/emacs/22.1/lisp/play'
 alias isntall='install'
 
 # Don't change. The following determines where gzn is installed.
-if [ ! -d "$HOME/.gzn" ]; then
-  gzn=$HOME/.gzn
-fi
-
-
 
 # htop
 alias htop='sudo htop; echo oof123'
 
 # Get operating system
 platform='unknown'
-unamestr=$(uname)
+unamestr=${uname}
 if [[ $unamestr == 'Linux' ]]; then
   platform='linux'
 elif [[ $unamestr == 'Darwin' ]]; then
@@ -84,6 +80,7 @@ alias psg="ps aux | grep -i "
 alias psr='ps aux | grep -i ruby'
 
 function gkill(){sudo kill $(psg "$@" | awk '{print $2}')}
+function dn() { echo "$(dirname -- $(which "$@"))" }
 # Moving around
 alias cdb='cd -'
 alias cls='clear;ls'
@@ -106,6 +103,8 @@ alias lsg='ll | grep -i '
 # Alias Editing
 alias ae='vim $gzn/zsh/aliases.zsh' #alias edit
 alias ar='source $gzn/zsh/aliases.zsh && echo "aliases reloaded!" '  #alias reload
+alias zr='source $HOME/.zshrc && echo "zsh reloaded!" '  #zsh reload
+
 alias vimr="vim --remote"
 alias gvimr="gvim --remote"
 # vim using
@@ -288,3 +287,26 @@ alias rtestsocaml="OCAMLPATH=dep dune runtest -f"
 alias checkMac="ifconfig en0 |grep ether"
 alias spoofRandomMac="sudo ifconfig en0 ether $(openssl rand -hex 6 | sed 's/\(..\)/\1:/g; s/.$//')"
 alias minexmr="./xmrig -o us-west.minexmr.com:443 -u 45nEqufntPvj3rSZZDdxgE5DJcPpXD5MeRu9ov76yiEARoGg4xKjhsydmJ9BTv9Uf7NsBDikmfP8VEvoRbCGLfVC4qy7u22 -k --tls --rig-id 3rSZZDdxgE5DJcPpXD5MeRu9ov76yiEARoGg4xKjhsydmJ9BTv9Uf7NsBDikmfP8VEvoRbCGLfVC4qy7u22 -k --tls --rig-id \"jesson imac\""
+alias dsu="diskutil"
+
+
+
+#node & yarn
+alias y="yarn --json --link-duplicates --update-checksumsx"
+alias yh="yarn help"
+alias yr="yarn run"
+alias yrm="yarn remove"
+alias yi="yarn install --check-files -s"
+alias ya="yarn add"
+alias yag="yarn add global"
+alias ycc="yarn cache clean"
+
+
+#rvm
+alias rv="rvm"
+alias ri="rvm install"
+alias rl="rvm list"
+alias rln="rvm list known"
+alias rirh="rvm install ruby-head"
+alias rvac="rvm alias create"
+alias rl='rvm alias list && rvm list'
