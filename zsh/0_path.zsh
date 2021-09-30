@@ -11,5 +11,5 @@ pathAppend() {
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++{if (NR > 1) printf ORS; printf $a[$1]}')
 
 pathAppend "$HOME/.gzn/bin"
-pathAppend "$HOME/.gzn/bin/yadr"
+pathAppend "$HOME/.gzn/bin/gzn"
 
