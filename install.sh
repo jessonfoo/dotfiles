@@ -8,18 +8,18 @@ if [ ! -d "$HOME/.gzn" ]; then
 
       pkgmgr='unknown'
       declare -A osInfo;
-      sInfo[/etc/redhat-release]=yum
+      osInfo[/etc/redhat-release]=yum
       osInfo[/etc/arch-release]=pacman
       osInfo[/etc/gentoo-release]=emerge
       osInfo[/etc/SuSE-release]=zypp
       osInfo[/etc/debian_version]=apt-get
-      for f in ${!osINfo[@]}
+      for f in ${!osInfo[@]}
       do
         if [[ -f $f ]];then
           export pkgmgr=${osInfo[$f]};
       fi
   done
-  
+
     #      hash brew 2>/dev/null || { printf >&2 "installing linuxbrew for package management \n \n ";sudo $pkgmgr update; sudo $pkgmgr install linuxbrew-wrapper;}
     hash git 2>/dev/null || { printf >&2 "unable to find git \n attempting to install with $pkgmgr \n \n ";
         sudo $pkgmgr install git -Y; }
