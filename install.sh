@@ -3,7 +3,7 @@
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
-    if [ $unamestr == 'Linux' ]; then
+    if [[ $unamestr == 'Linux' ]]; then
       platform='linux'
 
       pkgmgr='unknown'
