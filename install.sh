@@ -1,9 +1,8 @@
 #!/bin/bash
+declare -A deps;
 
+deps=(git, ruby, rake, vim, fontconfig, tmux, tree, htop, lnav)
 if [ ! -d "$HOME/.gzn" ]; then
-	declare -A deps;
-	
-	deps=(git, ruby, rake, vim, fontconfig, tmux, tree, htop, lnav)
 	platform='unknown'
 	unamestr=$(uname)
 	if [[ $unamestr == 'Linux' ]]; then
@@ -43,7 +42,6 @@ if [ ! -d "$HOME/.gzn" ]; then
 			hash $m 2> /dev/null || ({printf >&2 "unable to find $m \n attempting to install with $pkgmgr \n \n "} && brew install -y $m)	
 		done
 	fi
-fi
 	
 if
 	echo "Installing jesson's dot files to .gzn"
