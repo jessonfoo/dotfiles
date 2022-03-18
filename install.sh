@@ -34,17 +34,18 @@ if [ ! -d "$HOME/.gzn" ]; then
 			brew upgrade && brew upgrade && brew cleanup && brew prune && brew doctor
 			brew install macvim
 		fi
-		
-		
 	fi
+	
+		
 	if [ -d $pkgmgr ]; then
 		for $m in "${deps[@]}"
 		do				
 			hash $m 2> /dev/null || ({printf >&2 "unable to find $m \n attempting to install with $pkgmgr \n \n "} && brew install -y $m)	
 		done
 	fi
+fi
 	
-	
+if
 	echo "Installing jesson's dot files to .gzn"
 	git clone --depth=1 https://github.com/jessonfoo/dotfiles.git "$HOME/.gzn"
 	gzn="$HOME/.gzn"
@@ -54,3 +55,4 @@ if [ ! -d "$HOME/.gzn" ]; then
 else
 	echo "the directory .gzn already exists, to install or update cd ~/.gzn && rake update"
 fi
+	
