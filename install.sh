@@ -3,7 +3,7 @@
 if [ ! -d "$HOME/.gzn" ]; then
     platform='unknown'
     unamestr=$(uname)
-    if [[ $unamestr == 'Linux' ]]; then
+    if [ $unamestr == 'Linux' ]; then
       platform='linux'
 
       pkgmgr='unknown'
@@ -15,7 +15,7 @@ if [ ! -d "$HOME/.gzn" ]; then
       osInfo[/etc/debian_version]=apt-get
       for f in ${!osInfo[@]}
       do
-        if [[ -f $f ]];then
+        if [ -f $f ];then
           export pkgmgr=${osInfo[$f]};
       fi
   done
