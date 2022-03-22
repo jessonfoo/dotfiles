@@ -40,7 +40,6 @@ if [ ! -d "$HOME/.gzn" ]; then
     else
       echo "--- brew is already isntalled ---"
     fi
-  fi
 
   echo "Installing jesson's dot files to .gzn"
   git clone --depth=1 https://github.com/jessonfoo/dotfiles.git "$HOME/.gzn"
