@@ -6,7 +6,7 @@ if [ ! -d "$HOME/.gzn" ]; then
 	if [ $unamestr == 'Linux' ]; then
 		platform='linux'
 		pkgmgr='unknown'
-		ag='apt-get'
+		local apt='apt'
 		declare -A osInfo;
 		osInfo[/etc/redhat-release]=yum
 		osInfo[/etc/arch-release]=pacman
@@ -14,7 +14,7 @@ if [ ! -d "$HOME/.gzn" ]; then
 		osInfo[/etc/SuSE-release]=zypp
 		osInfo[/etc/debian_version]=apt-get
 		for f in ${!osInfo[@]}; do
-			if [ -f $f ];then ag=${osInfo[$f]}; fi
+			if [ -f $f ];then apt=${osInfo[$f]}; fi
 		done;
 		declare -A pkgs;
 		pkgs[git]=git
@@ -28,7 +28,7 @@ if [ ! -d "$HOME/.gzn" ]; then
 		for i in ${pkgs[@]}; do
 			
 			if ! [ -x "$(command -v $i)" ]; then
-				sudo ${osInfo[$f]} install -y  $i
+				sudo apt install -y  $i
 			else
 				echo "-- $i already installed ---"
 			fi
