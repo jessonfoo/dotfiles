@@ -4,8 +4,7 @@ if [ ! -d "$HOME/.gzn" ]; then
   unamestr=$(uname)
   if [[ $unamestr == 'Linux' ]]; then
     platform='linux'
-    pkgmgr='unknown'
-    ag='apt-get'
+    pkgmgr='apt-get'
     declare -A osInfo;
     osInfo[/etc/redhat-release]=yum
     osInfo[/etc/arch-release]=pacman
@@ -14,18 +13,18 @@ if [ ! -d "$HOME/.gzn" ]; then
     osInfo[/etc/debian_version]=apt-get
     for f in ${!osInfo[@]}; do
       if [ -f $f ]; then
-        ag=${osInfo[$f]};
+        pkgmgr=${osInfo[$f]};
       fi
     done;
     
     
-    echo "package manager $ag";
+    echo "package manager $pkgmgr";
     declare -a packages;
     packages=( git ruby rake zsh vim fontconfig tree lnav htop tree tmux )
     for i in ${packages[@]}; do
       
       if ! [ -x "$(command -v $i)" ]; then
-        sudo $ag install -y  $i
+        sudo $pkgmgr install -y  $i
       else
         echo "-- $i already installed ---"
       fi
