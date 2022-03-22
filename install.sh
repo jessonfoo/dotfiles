@@ -4,6 +4,7 @@ if [ ! -d "$HOME/.gzn" ]; then
   unamestr=$(uname)
   if [[ $unamestr == 'Linux' ]]; then
     platform='linux'
+    pkgmgr='unknown'
     ag='apt-get'
     declare -A osInfo;
     osInfo[/etc/redhat-release]=yum
@@ -40,6 +41,7 @@ if [ ! -d "$HOME/.gzn" ]; then
     else
       echo "--- brew is already isntalled ---"
     fi
+  fi
 
   echo "Installing jesson's dot files to .gzn"
   git clone --depth=1 https://github.com/jessonfoo/dotfiles.git "$HOME/.gzn"
