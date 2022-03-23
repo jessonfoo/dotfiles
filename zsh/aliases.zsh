@@ -343,6 +343,33 @@ function mariadbC () {
 function phpfpmC () {
     sudo /opt/bitnami/ctlscript.sh $@ php-fpm
 }
+function certUpdate(){
+
+if ! [ -f /opt/bitnami/nginx/conf/bitnami/certs/server.crt ]; then·
+  sudo rm -rf /opt/bitnami/nginx/conf/bitnami/certs/*.old
+  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old
+  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.key /opt/bitnami/nginx/conf/bitnami/certs/server.key.old
+  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.csr /opt/bitnami/nginx/conf/bitnami/certs/server.csr.old
+fi
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.key /opt/bitnami/nginx/conf/bitnami/certs/server.key
+sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt
+sudo chown root:root /opt/bitnami/nginx/conf/bitnami/certs/server*
+sudo chmod 600 /opt/bitnami/nginx/conf/bitnami/certs/server*
+}
+
+function validateDomains(){
+
+  shead="sudo /opt/bitnami/letsencrypt/lego --tls -m jessson@garbagedream.com"
+  stail=" --path=\"/opt/bitnami/letsencrypt\" run;"
+  ds=""
+  declare -a dargs
+  dargs=($@)
+    for d in ${dargs[@]}; do
+      ds+=" -d $d";
+    done
+    cmd=$shead$ds$stail
+  eval $cmd
+}
 
 
 
