@@ -310,3 +310,45 @@ alias rln="rvm list known"
 alias rirh="rvm install ruby-head"
 alias rvac="rvm alias create"
 alias rl='rvm alias list && rvm list'
+
+
+
+#aws bitnami server packaged
+function logSearch() {                                                                                                                                                                                                                                                                    
+    grep "$@" /opt/bitnami/nginx/logs/access.log
+}
+function IpListRankFromLogs() {
+    path=/opt/bitnami/nginx/logs/access.log
+    if [ -f $@ ]; then 
+        path=$@
+    fi
+    cat $@ | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20
+}
+
+
+
+alias agi="sudo apt-get install -y"
+alias ctl="sudo /opt/bitnami/ctlscript.sh"
+alias ctlstart="ctl start"
+alias ctlrestart="ctl restart"
+alias ctlstop="ctl stop"
+
+function nginxC () {
+    sudo /opt/bitnami/ctlscript.sh $@ nginx
+}
+
+function mariadbC () {
+    sudo /opt/bitnami/ctlscript.sh $@ mysql
+}
+function phpfpmC () {
+    sudo /opt/bitnami/ctlscript.sh $@ php-fpm
+}
+
+
+
+
+
+
+
+
+
