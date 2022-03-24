@@ -334,18 +334,24 @@ function mariadbC () {
 function phpfpmC () {
     sudo /opt/bitnami/ctlscript.sh $@ php-fpm
 }
+
+
 function certUpdate(){
-  cpath="/opt/bitnami/nginx/conf/bitnami/certs"
-  if[]
-  "sudo rm -rf $cpath/server.crt.old"
-··
-  sudo rm -rf /opt/bitnami/nginx/conf/bitnami/certs/*.old
-  sudo mv
-  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.key /opt/bitnami/nginx/conf/bitnami/certs/server.key
-  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt
+
+  if  [-f /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old]; then
+    sudo rm -rf /opt/bitnami/nginx/conf/bitnami/certs/*.old·
+  fi
+  if [ -f /opt/bitnami/nginx/conf/bitnami/certs/server.crt ]; then·
+    sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old
+    sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.key /opt/bitnami/nginx/conf/bitnami/certs/server.key.old
+    sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.csr /opt/bitnami/nginx/conf/bitnami/certs/server.csr.old
+  fi
+  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.key /opt/bitnami/nginx/conf/bitnami/certs/server.key
+  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt
   sudo chown root:root /opt/bitnami/nginx/conf/bitnami/certs/server*
   sudo chmod 600 /opt/bitnami/nginx/conf/bitnami/certs/server*
 }
+
 
 function validateDomains(){
 
@@ -358,8 +364,14 @@ function validateDomains(){
       ds+=" -d $d";
     done
     cmd=$shead$ds$stail
+    
   eval $cmd
+  if [ -f /opt/bitnami/letsencrypt/certificates/$1 ]; then
+    certUpdate $0
+  fi
 }
+
+
 
 function getWP(){
  (cd /tmp && wget https://wordpress.org/latest.tar.gz && sudo tar xfvz latest.tar.gz -C /opt/bitnami/ )
