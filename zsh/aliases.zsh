@@ -314,19 +314,10 @@ alias rl='rvm alias list && rvm list'
 
 
 #aws bitnami server packaged
-function logSearch() {                                                                                                                                                                                                                                                                    
-    grep "$@" /opt/bitnami/nginx/logs/access.log
+function viewLogActionsByIp() {·········································································································
+    grep "$@" "/opt/bitnami/nginx/logs/access.log"
 }
-function IpListRankFromLogs() {
-    path=/opt/bitnami/nginx/logs/access.log
-    if [ -f $@ ]; then 
-        path=$@
-    fi
-    cat $@ | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20
-}
-
-
-
+alias checkAccessLog="cat /opt/bitnami/nginx/logs/access.log | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20"·
 alias agi="sudo apt-get install -y"
 alias ctl="sudo /opt/bitnami/ctlscript.sh"
 alias ctlstart="ctl start"
@@ -344,17 +335,16 @@ function phpfpmC () {
     sudo /opt/bitnami/ctlscript.sh $@ php-fpm
 }
 function certUpdate(){
-
-if ! [ -f /opt/bitnami/nginx/conf/bitnami/certs/server.crt ]; then·
+  cpath="/opt/bitnami/nginx/conf/bitnami/certs"
+  if[]
+  "sudo rm -rf $cpath/server.crt.old"
+··
   sudo rm -rf /opt/bitnami/nginx/conf/bitnami/certs/*.old
-  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old
-  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.key /opt/bitnami/nginx/conf/bitnami/certs/server.key.old
-  sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.csr /opt/bitnami/nginx/conf/bitnami/certs/server.csr.old
-fi
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.key /opt/bitnami/nginx/conf/bitnami/certs/server.key
-sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt
-sudo chown root:root /opt/bitnami/nginx/conf/bitnami/certs/server*
-sudo chmod 600 /opt/bitnami/nginx/conf/bitnami/certs/server*
+  sudo mv
+  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.key /opt/bitnami/nginx/conf/bitnami/certs/server.key
+  sudo ln -sf /opt/bitnami/letsencrypt/certificates/$@.com.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt
+  sudo chown root:root /opt/bitnami/nginx/conf/bitnami/certs/server*
+  sudo chmod 600 /opt/bitnami/nginx/conf/bitnami/certs/server*
 }
 
 function validateDomains(){
@@ -371,11 +361,61 @@ function validateDomains(){
   eval $cmd
 }
 
+function getWP(){
+ (cd /tmp && wget https://wordpress.org/latest.tar.gz && sudo tar xfvz latest.tar.gz -C /opt/bitnami/ )
+}
+
+function chwpownmod(){
+  (sudo chown -R daemon:daemon /opt/bitnami/wordpress && sudo chmod -R g+w /opt/bitnami/wordpress)·
+}
+
+function makeHttpServerBlock(){
+    echo 'server {
+      listen 80 default_server;
+      root /opt/bitnami/wordpress;
+      server_name _;
+
+      index index.php;
+
+      location / {
+        try_files $uri $uri/ /index.php?q=$uri&$args;
+      }
+
+      if (!-e $request_filename)
+      {
+        rewrite ^/(.+)$ /index.php?q=$1 last;
+      }
+
+      include  "/opt/bitnami/nginx/conf/bitnami/*.conf";
+    }' > /opt/bitnami/nginx/conf/server_blocks/wordpress-server-block.conf;
+}
+
+function makeHttpsServerBlock() {
+      echo '
+      server {
+        # Port to listen on, can also be set in IP:PORT format
+        listen 443 ssl default_server;
+        root /opt/bitnami/wordpress;
+        # Catch-all server block
+        # See: https://nginx.org/en/docs/http/server_names.html#miscellaneous_names
+        server_name _;
+        ssl_certificate      bitnami/certs/server.crt;
+        ssl_certificate_key  bitnami/certs/server.key;
+        location / {
+          try_files $uri $uri/ /index.php?q=$uri&$args;
+        }
+        if (!-e $request_filename)
+        {
+          rewrite ^/(.+)$ /index.php?q=$1 last;
+        }
+        include  "/opt/bitnami/nginx/conf/bitnami/*.conf";
+    }' >  /opt/bitnami/nginx/conf/server_blocks/wordpress-https-server-block.conf
+
+}
 
 
-
-
-
-
+function createServerBlocks(){
+  (makeHttpServerBlock && makeHttpsServerBlock)
+}
 
 
