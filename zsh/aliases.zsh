@@ -320,20 +320,37 @@ function viewLogActionsByIp() {························�
 alias checkAccessLog="cat /opt/bitnami/nginx/logs/access.log | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20"·
 alias agi="sudo apt-get install -y"
 alias ctl="sudo /opt/bitnami/ctlscript.sh"
-alias ctlstart="ctl start"
-alias ctlrestart="ctl restart"
-alias ctlstop="ctl stop"
+alias agi="sudo apt-get install"
+alias acs="sudo apt-cache search"
+alias ctl="sudo /opt/bitnami/ctlscript.sh"
+alias ctlS="sudo ctl status"
+alias gonitS="sudo gonit status"
+alias monitS="sudo monit status"
+alias monitM="sudo monit monitor"
 
-function nginxC () {
-    sudo /opt/bitnami/ctlscript.sh $@ nginx
+function ctlR() {
+  declare -a modules
+  modules=($@)
+  for m in ${modules}; do·
+    eval "sudo /opt/bitnami/ctlscript.sh restart $m"
+  done
+}
+function ctlSp() {
+  declare -a modules
+  modules=($@)
+  for m in ${modules}; do·
+    eval "sudo /opt/bitnami/ctlscript.sh stop $m"
+  done
+}
+function ctlSt() {
+  declare -a modules
+  modules=($@)
+  for m in ${modules}; do·
+    eval "sudo /opt/bitnami/ctlscript.sh start $m"
+  done
 }
 
-function mariadbC () {
-    sudo /opt/bitnami/ctlscript.sh $@ mysql
-}
-function phpfpmC () {
-    sudo /opt/bitnami/ctlscript.sh $@ php-fpm
-}
+
 
 
 function certUpdate(){
