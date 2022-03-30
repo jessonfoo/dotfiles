@@ -314,7 +314,7 @@ alias rl='rvm alias list && rvm list'
 
 
 #aws bitnami server packaged
-function viewLogActionsByIp() {·········································································································
+function viewLogActionsByIp() {
     grep "$@" "/opt/bitnami/nginx/logs/access.log"
 }
 alias checkAccessLog="cat /opt/bitnami/nginx/logs/access.log | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20"·
@@ -331,21 +331,21 @@ alias monitM="sudo monit monitor"
 function ctlR() {
   declare -a modules
   modules=($@)
-  for m in ${modules}; do·
+  for m in ${modules}; do
     eval "sudo /opt/bitnami/ctlscript.sh restart $m"
   done
 }
 function ctlSp() {
   declare -a modules
   modules=($@)
-  for m in ${modules}; do·
+  for m in ${modules}; do
     eval "sudo /opt/bitnami/ctlscript.sh stop $m"
   done
 }
 function ctlSt() {
   declare -a modules
   modules=($@)
-  for m in ${modules}; do·
+  for m in ${modules}; do
     eval "sudo /opt/bitnami/ctlscript.sh start $m"
   done
 }
@@ -358,7 +358,7 @@ function certUpdate(){
   if  [-f /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old]; then
     sudo rm -rf /opt/bitnami/nginx/conf/bitnami/certs/*.old·
   fi
-  if [ -f /opt/bitnami/nginx/conf/bitnami/certs/server.crt ]; then·
+  if [ -f /opt/bitnami/nginx/conf/bitnami/certs/server.crt ]; then
     sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.crt /opt/bitnami/nginx/conf/bitnami/certs/server.crt.old
     sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.key /opt/bitnami/nginx/conf/bitnami/certs/server.key.old
     sudo mv /opt/bitnami/nginx/conf/bitnami/certs/server.csr /opt/bitnami/nginx/conf/bitnami/certs/server.csr.old
@@ -381,7 +381,7 @@ function validateDomains(){
       ds+=" -d $d";
     done
     cmd=$shead$ds$stail
-    
+
   eval $cmd
   if [ -f /opt/bitnami/letsencrypt/certificates/$1 ]; then
     certUpdate $0
@@ -395,7 +395,7 @@ function getWP(){
 }
 
 function chwpownmod(){
-  (sudo chown -R daemon:daemon /opt/bitnami/wordpress && sudo chmod -R g+w /opt/bitnami/wordpress)·
+  (sudo chown -R daemon:daemon /opt/bitnami/wordpress && sudo chmod -R g+w /opt/bitnami/wordpress)
 }
 
 function makeHttpServerBlock(){
@@ -446,5 +446,6 @@ function makeHttpsServerBlock() {
 function createServerBlocks(){
   (makeHttpServerBlock && makeHttpsServerBlock)
 }
+
 
 
