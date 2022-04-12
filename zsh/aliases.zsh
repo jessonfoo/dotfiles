@@ -447,5 +447,10 @@ function createServerBlocks(){
   (makeHttpServerBlock && makeHttpsServerBlock)
 }
 
+function nginxSetupWP(){
+  (getWP && chpownmod && createServerBlocks)
+}
+
+
 
 
