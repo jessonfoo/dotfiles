@@ -313,10 +313,18 @@ alias rl='rvm alias list && rvm list'
 
 
 
+
+
+
 #aws bitnami server packaged
-function viewLogActionsByIp() {
-    grep "$@" "/opt/bitnami/nginx/logs/access.log"
-}
+
+
+
+
+
+
+
+alias sql='mysql -uroot --password="$(cat /home/bitnami/bitnami_application_password)"'
 alias checkAccessLog="cat /opt/bitnami/nginx/logs/access.log | awk '{print $1}' | sort | uniq -c | sort -nr| head -n 20"·
 alias agi="sudo apt-get install -y"
 alias ctl="sudo /opt/bitnami/ctlscript.sh"
@@ -336,8 +344,7 @@ function ctlR() {
   done
 }
 function ctlSp() {
-  declare -a modules
-  modules=($@)
+  declare 
   for m in ${modules}; do
     eval "sudo /opt/bitnami/ctlscript.sh stop $m"
   done
@@ -452,5 +459,6 @@ function nginxSetupWP(){
 }
 
 
-
-
+function viewLogActionsByIp() {
+    grep "$@" "/opt/bitnami/nginx/logs/access.log"
+}
