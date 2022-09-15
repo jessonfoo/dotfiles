@@ -1,10 +1,5 @@
 #!/usr/bin/env ruby
-#
-# This file is generated code. DO NOT send patches for it.
-#
-# Original source files with comments are at:
-# https://github.com/defunkt/hub
-#
+
 
 module Hub
   Version = VERSION = '1.10.6'
